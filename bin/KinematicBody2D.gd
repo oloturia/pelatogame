@@ -87,16 +87,17 @@ func _process(delta):
 	
 	position.y += velocity.y
 	position.x += velocity.x
-	var collision = move_and_collide(velocity*delta)
-	if collision:
-		if collision.collider.name == "TileMap":
+	var collision_floor = move_and_collide(velocity*delta)
+	if collision_floor:
+		if collision_floor.collider.name == "Terrain":
 			velocity.y = 0
 			falling = false
 			if jumping:
 				$AnimatedSprite.play();
 				
+
 	
-	if jumping and not collision:
+	if jumping and not collision_floor:
 		if $AnimatedSprite.frame == 15:
 			$AnimatedSprite.stop()
 			falling = true

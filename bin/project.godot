@@ -19,6 +19,12 @@ config/name="Capitan Pelato"
 run/main_scene="res://test.scn"
 config/icon="res://icon.png"
 
+[layer_names]
+
+2d_render/layer_1="player"
+2d_render/layer_2="floor"
+2d_render/layer_3="wall"
+
 [rendering]
 
 quality/driver/driver_name="GLES2"

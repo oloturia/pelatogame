@@ -1,4 +1,4 @@
-[gd_scene load_steps=154 format=2]
+[gd_scene load_steps=156 format=2]
 
 [ext_resource path="res://pelato_animations/pelato_run/010.png" type="Texture" id=1]
 [ext_resource path="res://pelato_animations/pelato_run/012.png" type="Texture" id=2]
@@ -152,17 +152,8 @@
 [ext_resource path="res://pelato_animations/pelato_rad_inverse/016.png" type="Texture" id=150]
 [ext_resource path="res://pelato_animations/pelato_rad_inverse/005.png" type="Texture" id=151]
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 24.0307
-height = 99.289
-
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 95 ), ExtResource( 79 ), ExtResource( 68 ), ExtResource( 96 ), ExtResource( 80 ), ExtResource( 98 ), ExtResource( 73 ), ExtResource( 97 ), ExtResource( 70 ), ExtResource( 74 ), ExtResource( 75 ), ExtResource( 76 ), ExtResource( 78 ), ExtResource( 71 ), ExtResource( 77 ), ExtResource( 67 ), ExtResource( 69 ) ],
-"loop": false,
-"name": "Skid Right",
-"speed": 25.0
-}, {
 "frames": [ ExtResource( 63 ), ExtResource( 47 ), ExtResource( 63 ), ExtResource( 52 ) ],
 "loop": true,
 "name": "Wait Left",
@@ -207,19 +198,58 @@ animations = [ {
 "loop": false,
 "name": "Jump Right",
 "speed": 25.0
+}, {
+"frames": [ ExtResource( 95 ), ExtResource( 79 ), ExtResource( 68 ), ExtResource( 96 ), ExtResource( 80 ), ExtResource( 98 ), ExtResource( 73 ), ExtResource( 97 ), ExtResource( 70 ), ExtResource( 74 ), ExtResource( 75 ), ExtResource( 76 ), ExtResource( 78 ), ExtResource( 71 ), ExtResource( 77 ), ExtResource( 67 ), ExtResource( 69 ) ],
+"loop": false,
+"name": "Skid Right",
+"speed": 25.0
 } ]
 
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 15.8977
+
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 26.9008
+height = 44.0122
+
+[sub_resource type="CapsuleShape2D" id=5]
+radius = 22.4996
+height = 107.39
+
 [node name="KinematicBody2D" type="KinematicBody2D"]
+position = Vector2( 522.349, 507.24 )
+collision_layer = 3
+collision_mask = 3
 script = ExtResource( 20 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 536.757, 524.101 )
-shape = SubResource( 1 )
-one_way_collision = true
-
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 535.726, 521.008 )
 scale = Vector2( 0.223817, 0.223817 )
 frames = SubResource( 2 )
 animation = "Idle Right"
 frame = 8
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Under" type="Area2D" parent="."]
+visible = false
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Under"]
+position = Vector2( 4.84137, 54.5757 )
+shape = SubResource( 3 )
+one_way_collision = true
+
+[node name="Over" type="Area2D" parent="."]
+visible = false
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Over"]
+position = Vector2( 6.60175, -24.2069 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 4.84137, 2.20068 )
+shape = SubResource( 5 )
