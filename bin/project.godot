@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Capitan Pelato"
-run/main_scene="res://test.scn"
+run/main_scene="res://Road_To_Fano.scn"
 config/icon="res://icon.png"
 
 [layer_names]
