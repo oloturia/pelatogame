@@ -563,11 +563,11 @@ animations = [ {
 radius = 15.3134
 height = 114.091
 
-[node name="KinematicBody2D" type="KinematicBody2D"]
+[node name="Capitan Pelato" type="KinematicBody2D"]
 collision_mask = 6
 script = ExtResource( 20 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+[node name="Pelataz" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.223817, 0.223817 )
 frames = SubResource( 1 )
 animation = "Idle Left"
@@ -580,4 +580,4 @@ __meta__ = {
 light_mask = 0
 position = Vector2( -0.243997, 0.55883 )
 shape = SubResource( 2 )
-[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="animation_finished" from="Pelataz" to="." method="_on_AnimatedSprite_animation_finished"]
