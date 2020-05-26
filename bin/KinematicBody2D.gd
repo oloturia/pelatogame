@@ -72,10 +72,6 @@ func _process(delta):
 			inversion = false
 			velocity.x = velocity.x/-2
 	
-			
-
-	
-	
 	var collision = move_and_collide(velocity*delta)
 	on_the_floor = false
 	if collision:
