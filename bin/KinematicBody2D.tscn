@@ -1,4 +1,4 @@
-[gd_scene load_steps=428 format=2]
+[gd_scene load_steps=429 format=2]
 
 [ext_resource path="res://pelato_animations/pelato_run/010.png" type="Texture" id=1]
 [ext_resource path="res://pelato_animations/pelato_run/012.png" type="Texture" id=2]
@@ -428,16 +428,6 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 397 ), ExtResource( 396 ), ExtResource( 399 ), ExtResource( 398 ) ],
-"loop": false,
-"name": "Parkjump Left",
-"speed": 25.0
-}, {
-"frames": [ ExtResource( 146 ), ExtResource( 136 ), ExtResource( 123 ), ExtResource( 104 ), ExtResource( 122 ), ExtResource( 151 ), ExtResource( 119 ), ExtResource( 134 ), ExtResource( 148 ), ExtResource( 127 ), ExtResource( 109 ) ],
-"loop": false,
-"name": "Land Left",
-"speed": 25.0
-}, {
 "frames": [ ExtResource( 365 ), ExtResource( 329 ), ExtResource( 424 ) ],
 "loop": true,
 "name": "Style Left",
@@ -557,14 +547,27 @@ animations = [ {
 "loop": false,
 "name": "Parkjump Right",
 "speed": 25.0
+}, {
+"frames": [ ExtResource( 397 ), ExtResource( 396 ), ExtResource( 399 ), ExtResource( 398 ) ],
+"loop": false,
+"name": "Parkjump Left",
+"speed": 25.0
+}, {
+"frames": [ ExtResource( 146 ), ExtResource( 136 ), ExtResource( 123 ), ExtResource( 104 ), ExtResource( 122 ), ExtResource( 151 ), ExtResource( 119 ), ExtResource( 134 ), ExtResource( 148 ), ExtResource( 127 ), ExtResource( 109 ) ],
+"loop": false,
+"name": "Land Left",
+"speed": 25.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 15.3134
-height = 114.091
+height = 101.914
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 28.3822, 4.1845 )
 
 [node name="Capitan Pelato" type="KinematicBody2D"]
-collision_mask = 6
+collision_mask = 4
 script = ExtResource( 20 )
 
 [node name="Pelataz" type="AnimatedSprite" parent="."]
@@ -576,8 +579,18 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Lower" type="CollisionShape2D" parent="."]
+[node name="Body" type="CollisionShape2D" parent="."]
 light_mask = 0
-position = Vector2( -0.243997, 0.55883 )
+position = Vector2( -0.243997, 0.145897 )
 shape = SubResource( 2 )
+
+[node name="Feet" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="Ground" type="CollisionShape2D" parent="Feet"]
+position = Vector2( 0.412918, 72.2635 )
+shape = SubResource( 3 )
 [connection signal="animation_finished" from="Pelataz" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="body_entered" from="Feet" to="." method="_on_Feet_body_entered"]
+[connection signal="body_exited" from="Feet" to="." method="_on_Feet_body_exited"]

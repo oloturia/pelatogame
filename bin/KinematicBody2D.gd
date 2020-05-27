@@ -4,7 +4,7 @@ var velocity = Vector2()
 var inversion = false
 var jumping = false
 var collision_wall = false
-var on_the_floor = true
+var on_the_floor = false
 var parkouring = false
 var grab = false
 
@@ -39,8 +39,10 @@ func _process(delta):
 				velocity.x -= 0.5
 		elif Input.is_action_pressed("ui_up"):
 			if velocity.x > 0 or $Pelataz.animation == "Idle Left":
+				velocity.x += 1
 				$Pelataz.play("Jump Right")
 			elif velocity.x < 0 or $Pelataz.animation == "Idle Right":
+				velocity.x -= 1
 				$Pelataz.play("Jump Left")
 			velocity.y = -27
 			jumping = true
@@ -60,17 +62,16 @@ func _process(delta):
 			inversion = false
 			velocity.x = velocity.x/-2
 	
+	if on_the_floor and velocity.y > 0:
+		velocity.y = 0
+		if parkouring or jumping:
+			if velocity.x > 0:
+				$Pelataz.play("Land Right")
+			else:
+				$Pelataz.play("Land Left")
+	
 	var collision = move_and_collide(velocity*delta)
-	on_the_floor = false
 	if collision:
-		if collision.collider.name == "Terrain":
-			velocity.y = 0
-			on_the_floor = true
-			if parkouring or jumping:
-				if velocity.x > 0:
-					$Pelataz.play("Land Right")
-				else:
-					$Pelataz.play("Land Left")
 		if collision.collider.name == "Wall" and not collision_wall:
 				if jumping:
 					if (($Pelataz.animation == "Jump Left" or $Pelataz.animation == "Jump Right") and $Pelataz.frame >=13) or ($Pelataz.animation == "Style Left" or $Pelataz.animation == "Style Right") :
@@ -84,15 +85,15 @@ func _process(delta):
 					if velocity.x > 5:
 						collision_wall = true
 						inversion = false
-						position.x -= velocity.x*8
+						#position.x -= velocity.x*8
 						velocity.x = 0
 						$Pelataz.play("Ouch Right")
 					elif velocity.x < -5:
 						collision_wall = true
 						inversion = false
 						jumping = false
-						position.x -= velocity.x*8
-						velocity.x = -0
+						#position.x -= velocity.x*8
+						velocity.x = 0
 						$Pelataz.play("Ouch Left")
 				else:
 					position.x -= velocity.x*10
@@ -116,10 +117,6 @@ func _on_AnimatedSprite_animation_finished():
 		$Pelataz.play("Idle Left")
 		velocity.x = 0
 		collision_wall = false
-#	elif $Pelataz.animation == "Jump Left" and on_the_floor:
-#		$Pelataz.play("Land Left")
-#	elif $Pelataz.animation == "Jump Right" and on_the_floor:
-#		$Pelataz.play("Land Right")
 	elif $Pelataz.animation == "Land Left":
 		jumping = false
 		parkouring = false
@@ -139,4 +136,14 @@ func _on_AnimatedSprite_animation_finished():
 		velocity.x = -velocity.x*1.5
 		velocity.y -=25
 
+func _on_Feet_body_entered(body):
+	if body.name == "Terrain":
+		on_the_floor = true
+	else:
+		print(body.name)
 
+func _on_Feet_body_exited(body):
+	if body.name == "Terrain":
+		on_the_floor = false
+	else:
+		print(body.name)
