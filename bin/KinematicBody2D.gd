@@ -62,46 +62,56 @@ func _process(delta):
 			inversion = false
 			velocity.x = velocity.x/-2
 	
-	if on_the_floor and velocity.y > 0:
-		velocity.y = 0
-		if parkouring or jumping:
-			if velocity.x > 0:
-				$Pelataz.play("Land Right")
-			else:
-				$Pelataz.play("Land Left")
-	
-	var collision = move_and_collide(velocity*delta)
+#	if on_the_floor and velocity.y > 0:
+#		if parkouring or jumping:
+#			if velocity.x > 0:
+#				$Pelataz.play("Land Right")
+#			else:
+#				$Pelataz.play("Land Left")
+
+	on_the_floor = false
+	var collision = move_and_collide(velocity*delta,true,true,true)
+
 	if collision:
-		if collision.collider.name == "Wall" and not collision_wall:
-				if jumping:
-					if (($Pelataz.animation == "Jump Left" or $Pelataz.animation == "Jump Right") and $Pelataz.frame >=13) or ($Pelataz.animation == "Style Left" or $Pelataz.animation == "Style Right") :
-						parkouring = true
-						grab = true
-						if velocity.x > 0:
-							$Pelataz.play("Parkour Right")
-						else:
-							$Pelataz.play("Parkour Left")
-				elif not parkouring:
-					if velocity.x > 5:
-						collision_wall = true
-						inversion = false
-						#position.x -= velocity.x*8
-						velocity.x = 0
-						$Pelataz.play("Ouch Right")
-					elif velocity.x < -5:
-						collision_wall = true
-						inversion = false
-						jumping = false
-						#position.x -= velocity.x*8
-						velocity.x = 0
-						$Pelataz.play("Ouch Left")
+		if collision.collider.name == "Terrain" and velocity.y > 0:
+			on_the_floor = true
+			velocity.y = 0
+			if parkouring or jumping:
+				if velocity.x > 0:
+					$Pelataz.play("Land Right")
 				else:
-					position.x -= velocity.x*10
+					$Pelataz.play("Land Left")
+#		if collision.collider.name == "Wall" and not collision_wall:
+#				if jumping:
+#					if (($Pelataz.animation == "Jump Left" or $Pelataz.animation == "Jump Right") and $Pelataz.frame >=13) or ($Pelataz.animation == "Style Left" or $Pelataz.animation == "Style Right") :
+#						parkouring = true
+#						grab = true
+#						if velocity.x > 0:
+#							$Pelataz.play("Parkour Right")
+#						else:
+#							$Pelataz.play("Parkour Left")
+#				elif not parkouring:
+#					if velocity.x > 5:
+#						collision_wall = true
+#						inversion = false
+#						#position.x -= velocity.x*8
+#						velocity.x = 0
+#						$Pelataz.play("Ouch Right")
+#					elif velocity.x < -5:
+#						collision_wall = true
+#						inversion = false
+#						jumping = false
+#						#position.x -= velocity.x*8
+#						velocity.x = 0
+#						$Pelataz.play("Ouch Left")
+#				else:
+#					position.x -= velocity.x*10
 
 	if not grab: 
 		position.y += velocity.y
 		position.x += velocity.x
-		velocity.y += gravity
+		if not on_the_floor:
+			velocity.y += gravity
 
 
 func _on_AnimatedSprite_animation_finished():
@@ -118,10 +128,12 @@ func _on_AnimatedSprite_animation_finished():
 		velocity.x = 0
 		collision_wall = false
 	elif $Pelataz.animation == "Land Left":
+		collision_wall = false
 		jumping = false
 		parkouring = false
 		$Pelataz.play("Idle Right")
 	elif $Pelataz.animation == "Land Right":
+		collision_wall = false
 		jumping = false
 		parkouring = false
 		$Pelataz.play("Idle Left")
@@ -129,21 +141,57 @@ func _on_AnimatedSprite_animation_finished():
 		grab = false
 		$Pelataz.play("Parkjump Left")
 		velocity.x = -velocity.x*1.5
-		velocity.y -= 25
+		velocity.y = -25
 	elif $Pelataz.animation == "Parkour Right":
 		grab = false
 		$Pelataz.play("Parkjump Right")
 		velocity.x = -velocity.x*1.5
-		velocity.y -=25
+		velocity.y = -25
 
-func _on_Feet_body_entered(body):
-	if body.name == "Terrain":
-		on_the_floor = true
-	else:
-		print(body.name)
+func _on_Head_body_entered(body):
+	if jumping:
+		if (($Pelataz.animation == "Jump Left" or $Pelataz.animation == "Jump Right") and $Pelataz.frame >=10) or ($Pelataz.animation == "Style Left" or $Pelataz.animation == "Style Right") :
+			parkouring = true
+			grab = true
+			if velocity.x > 0:
+				$Pelataz.play("Parkour Right")
+			else:
+				$Pelataz.play("Parkour Left")
+		else:
+			jumping = false
+	
+	if not jumping:
+		if velocity.x > 5:
+			collision_wall = true
+			inversion = false
+			position.x -= velocity.x*8
+			velocity.x = 0
+			$Pelataz.play("Ouch Right")
+		elif velocity.x < -5:
+			collision_wall = true
+			inversion = false
+			jumping = false
+			position.x -= velocity.x*8
+			velocity.x = 0
+			$Pelataz.play("Ouch Left")
+		else:
+			if velocity.x > 0:
+				position.x -= 10
+				velocity.x = -0.5
+			else:
+				position.x += 10
+				velocity.x = 0.5
+		if on_the_floor:
+			position.y -=6
+	
+#	if body.name == "Wall":
+#		print("collision")
+#	else:
+#		print(body.name)
 
-func _on_Feet_body_exited(body):
-	if body.name == "Terrain":
-		on_the_floor = false
-	else:
-		print(body.name)
+func _on_Head_body_exited(_body):
+	pass
+#	if body.name == "Wall":
+#		print("no more collision")
+#	else:
+#		print(body.name)

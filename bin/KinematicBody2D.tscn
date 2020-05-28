@@ -428,11 +428,6 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 365 ), ExtResource( 329 ), ExtResource( 424 ) ],
-"loop": true,
-"name": "Style Left",
-"speed": 25.0
-}, {
 "frames": [ ExtResource( 125 ), ExtResource( 139 ), ExtResource( 140 ), ExtResource( 120 ), ExtResource( 130 ), ExtResource( 143 ), ExtResource( 145 ), ExtResource( 128 ), ExtResource( 118 ), ExtResource( 102 ), ExtResource( 99 ), ExtResource( 72 ), ExtResource( 147 ), ExtResource( 149 ), ExtResource( 103 ), ExtResource( 137 ) ],
 "loop": false,
 "name": "Jump Right",
@@ -557,17 +552,21 @@ animations = [ {
 "loop": false,
 "name": "Land Left",
 "speed": 25.0
+}, {
+"frames": [ ExtResource( 365 ), ExtResource( 329 ), ExtResource( 424 ) ],
+"loop": true,
+"name": "Style Left",
+"speed": 25.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=2]
-radius = 15.3134
-height = 101.914
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 29.8655, 14.2406 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 28.3822, 4.1845 )
+extents = Vector2( 20.5369, 13.2687 )
 
 [node name="Capitan Pelato" type="KinematicBody2D"]
-collision_mask = 4
+collision_mask = 2
 script = ExtResource( 20 )
 
 [node name="Pelataz" type="AnimatedSprite" parent="."]
@@ -581,16 +580,15 @@ __meta__ = {
 
 [node name="Body" type="CollisionShape2D" parent="."]
 light_mask = 0
-position = Vector2( -0.243997, 0.145897 )
+position = Vector2( -0.243996, 60.8473 )
 shape = SubResource( 2 )
 
-[node name="Feet" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 2
+[node name="Head" type="Area2D" parent="."]
+collision_mask = 4
 
-[node name="Ground" type="CollisionShape2D" parent="Feet"]
-position = Vector2( 0.412918, 72.2635 )
+[node name="Collision Head" type="CollisionShape2D" parent="Head"]
+position = Vector2( 1.2388, -58.6368 )
 shape = SubResource( 3 )
 [connection signal="animation_finished" from="Pelataz" to="." method="_on_AnimatedSprite_animation_finished"]
-[connection signal="body_entered" from="Feet" to="." method="_on_Feet_body_entered"]
-[connection signal="body_exited" from="Feet" to="." method="_on_Feet_body_exited"]
+[connection signal="body_entered" from="Head" to="." method="_on_Head_body_entered"]
+[connection signal="body_exited" from="Head" to="." method="_on_Head_body_exited"]
