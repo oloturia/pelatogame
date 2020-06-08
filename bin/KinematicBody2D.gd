@@ -7,7 +7,7 @@ var collision_wall = false
 var on_the_floor = false
 var parkouring = false
 var grab = false
-
+var ducking = false
 var gravity = 2
 
 func _ready():
@@ -16,10 +16,16 @@ func _ready():
 func _process(delta):
 	if not jumping and not inversion and not collision_wall and on_the_floor:
 		if velocity.x > 0:
-			$Pelataz.play("Run Right")
+			if not ducking:
+				$Pelataz.play("Run Right")
+			else:
+				$Pelataz.play("DuckRun Right")
 		elif velocity.x < 0:
-			$Pelataz.play("Run Left")
-			
+			if not ducking:
+				$Pelataz.play("Run Left")
+			else:
+				$Pelataz.play("DuckRun Left")
+				
 		if velocity.x > 0 and velocity.x < 0.5:
 			velocity.x = 0
 			$Pelataz.play("Idle Left")
@@ -28,16 +34,22 @@ func _process(delta):
 			$Pelataz.play("Idle Right")
 
 		if Input.is_action_pressed("ui_right"):
-			if velocity.x < -5:
-				inversion = true
-			if velocity.x < 10:
-				velocity.x += 0.5
+			if not ducking:
+				if velocity.x < -5:
+					inversion = true
+				if velocity.x < 10:
+					velocity.x += 0.5
+			else:
+					velocity.x += 0.1
 		elif Input.is_action_pressed("ui_left"):
-			if velocity.x > 5:
-				inversion = true
-			if velocity.x > -10:
-				velocity.x -= 0.5
-		elif Input.is_action_pressed("ui_up"):
+			if not ducking:
+				if velocity.x > 5:
+					inversion = true
+				if velocity.x > -10:
+					velocity.x -= 0.5
+			else:
+					velocity.x -= 0.1
+		elif Input.is_action_pressed("ui_up") and not ducking:
 			if velocity.x > 0 or $Pelataz.animation == "Idle Left":
 				velocity.x += 1
 				$Pelataz.play("Jump Right")
@@ -46,12 +58,27 @@ func _process(delta):
 				$Pelataz.play("Jump Left")
 			velocity.y = -27
 			jumping = true
+		elif Input.is_action_pressed("ui_down"):
+			if not ducking:
+				if velocity.x > 0:
+					$Pelataz.play("Ducking Right")
+					ducking = true
+				elif velocity.x < 0:
+					$Pelataz.play("Ducking Left")
+					ducking = true
 		else:
+			ducking = false
 			if velocity.x > 0:
 				velocity.x -= 0.1
 			if velocity.x < 0:
 				velocity.x += 0.1
-		
+			
+
+	if ducking:
+		$Head.position.y  = 60
+	else:
+		$Head.position.y = 0
+	
 	
 	if inversion and on_the_floor:
 		if velocity.x > 0:
@@ -61,13 +88,6 @@ func _process(delta):
 		if $Pelataz.frame > 15:
 			inversion = false
 			velocity.x = velocity.x/-2
-	
-#	if on_the_floor and velocity.y > 0:
-#		if parkouring or jumping:
-#			if velocity.x > 0:
-#				$Pelataz.play("Land Right")
-#			else:
-#				$Pelataz.play("Land Left")
 
 	on_the_floor = false
 	var collision = move_and_collide(velocity*delta,true,true,true)
@@ -81,6 +101,11 @@ func _process(delta):
 					$Pelataz.play("Land Right")
 				else:
 					$Pelataz.play("Land Left")
+			else:
+				if $Pelataz.animation == "Fall Right":
+					$Pelataz.play("Stumble Right")
+				elif $Pelataz.animation == "Fall Left":
+					$Pelataz.play("Stumble Left")
 
 	if not grab: 
 		position.y += velocity.y
@@ -131,8 +156,21 @@ func _on_AnimatedSprite_animation_finished():
 		$Pelataz.play("Parkjump Right")
 		velocity.x = -velocity.x*1.5
 		velocity.y = -25
+	elif $Pelataz.animation == "Stumble Left":
+		jumping = false
+		parkouring = false
+		collision_wall = false
+		on_the_floor = true
+		$Pelataz.play("Idle Left")
+	elif $Pelataz.animation == "Stumble Right":
+		jumping = false
+		parkouring = false
+		collision_wall = false
+		on_the_floor = true
+		$Pelataz.play("Idle Right")
 
 func _on_Head_body_entered(body):
+
 	if jumping:
 		if (($Pelataz.animation == "Jump Left" or $Pelataz.animation == "Jump Right") and $Pelataz.frame >=10) or ($Pelataz.animation == "Style Left" or $Pelataz.animation == "Style Right") :
 			parkouring = true
@@ -160,24 +198,15 @@ func _on_Head_body_entered(body):
 			$Pelataz.play("Ouch Left")
 		else:
 			if velocity.x > 0:
-				position.x -= 10
+				position.x -= 20
 				velocity.x = -0.5
 			else:
-				position.x += 10
+				position.x += 20
 				velocity.x = 0.5
 		if on_the_floor:
-			position.y -=6
+			position.y -=10
 	
 
-	
-#	if body.name == "Wall":
-#		print("collision")
-#	else:
-#		print(body.name)
 
-func _on_Head_body_exited(_body):
-	pass
-#	if body.name == "Wall":
-#		print("no more collision")
-#	else:
-#		print(body.name)
+func _on_Feet_body_entered(body):
+	pass # Replace with function body.

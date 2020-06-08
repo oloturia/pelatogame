@@ -1,4 +1,4 @@
-[gd_scene load_steps=430 format=2]
+[gd_scene load_steps=436 format=2]
 
 [ext_resource path="res://pelato_animations/pelato_run/010.png" type="Texture" id=1]
 [ext_resource path="res://pelato_animations/pelato_run/012.png" type="Texture" id=2]
@@ -236,12 +236,14 @@
 [ext_resource path="res://pelato_animations/pelato_ouch_inverse/022.png" type="Texture" id=234]
 [ext_resource path="res://pelato_animations/pelato_ouch_inverse/024.png" type="Texture" id=235]
 [ext_resource path="res://pelato_animations/pelato_anf_inverse/002.png" type="Texture" id=236]
+[ext_resource path="res://pelato_animations/pelato_duck/duck01_inverted.png" type="Texture" id=237]
 [ext_resource path="res://pelato_animations/pelato_stumble_inverse/024.png" type="Texture" id=238]
 [ext_resource path="res://pelato_animations/pelato_stumble_inverse/026.png" type="Texture" id=239]
 [ext_resource path="res://pelato_animations/pelato_stumble_inverse/025.png" type="Texture" id=240]
 [ext_resource path="res://pelato_animations/pelato_stumble_inverse/042.png" type="Texture" id=241]
 [ext_resource path="res://pelato_animations/pelato_stumble_inverse/028.png" type="Texture" id=242]
 [ext_resource path="res://pelato_animations/pelato_stumble_inverse/027.png" type="Texture" id=243]
+[ext_resource path="res://pelato_animations/pelato_duck/abouttoduck_inverted.png" type="Texture" id=244]
 [ext_resource path="res://pelato_animations/pelato_stumble_inverse/043.png" type="Texture" id=245]
 [ext_resource path="res://pelato_animations/pelato_stumble_inverse/046.png" type="Texture" id=246]
 [ext_resource path="res://pelato_animations/pelato_with_style/004.png" type="Texture" id=247]
@@ -288,10 +290,13 @@
 [ext_resource path="res://pelato_animations/pelato_fall/007.png" type="Texture" id=288]
 [ext_resource path="res://pelato_animations/pelato_fall/008.png" type="Texture" id=289]
 [ext_resource path="res://pelato_animations/pelato_stumble/000.png" type="Texture" id=290]
+[ext_resource path="res://pelato_animations/pelato_duck/duck02_inverted.png" type="Texture" id=291]
 [ext_resource path="res://pelato_animations/pelato_stumble/005.png" type="Texture" id=292]
 [ext_resource path="res://pelato_animations/pelato_stumble_inverse/035.png" type="Texture" id=293]
+[ext_resource path="res://pelato_animations/pelato_duck/duck02.png" type="Texture" id=294]
 [ext_resource path="res://pelato_animations/pelato_stumble_inverse/033.png" type="Texture" id=295]
 [ext_resource path="res://pelato_animations/pelato_stumble_inverse/039.png" type="Texture" id=296]
+[ext_resource path="res://pelato_animations/pelato_duck/abouttoduck.png" type="Texture" id=297]
 [ext_resource path="res://pelato_animations/pelato_anf/004.png" type="Texture" id=298]
 [ext_resource path="res://pelato_animations/pelato_anf/005.png" type="Texture" id=299]
 [ext_resource path="res://pelato_animations/pelato_anf/006.png" type="Texture" id=300]
@@ -347,6 +352,7 @@
 [ext_resource path="res://pelato_animations/pelato_stumble/046.png" type="Texture" id=350]
 [ext_resource path="res://pelato_animations/pelato_stumble/037.png" type="Texture" id=351]
 [ext_resource path="res://pelato_animations/pelato_stumble_inverse/036.png" type="Texture" id=352]
+[ext_resource path="res://pelato_animations/pelato_duck/duck01.png" type="Texture" id=353]
 [ext_resource path="res://pelato_animations/pelato_parkour/006.png" type="Texture" id=354]
 [ext_resource path="res://pelato_animations/pelato_parkour/004.png" type="Texture" id=355]
 [ext_resource path="res://pelato_animations/pelato_stumble_inverse/041.png" type="Texture" id=356]
@@ -428,9 +434,19 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 125 ), ExtResource( 139 ), ExtResource( 140 ), ExtResource( 120 ), ExtResource( 130 ), ExtResource( 143 ), ExtResource( 145 ), ExtResource( 128 ), ExtResource( 118 ), ExtResource( 102 ), ExtResource( 99 ), ExtResource( 72 ), ExtResource( 147 ), ExtResource( 149 ), ExtResource( 103 ), ExtResource( 137 ) ],
+"frames": [ ExtResource( 297 ), ExtResource( 294 ) ],
 "loop": false,
-"name": "Jump Right",
+"name": "Ducking Right",
+"speed": 25.0
+}, {
+"frames": [ ExtResource( 244 ), ExtResource( 291 ) ],
+"loop": false,
+"name": "Ducking Left",
+"speed": 25.0
+}, {
+"frames": [ ExtResource( 237 ), ExtResource( 291 ) ],
+"loop": true,
+"name": "DuckRun Left",
 "speed": 25.0
 }, {
 "frames": [ ExtResource( 117 ), ExtResource( 116 ), ExtResource( 115 ), ExtResource( 114 ), ExtResource( 129 ), ExtResource( 100 ), ExtResource( 133 ), ExtResource( 111 ), ExtResource( 121 ), ExtResource( 113 ), ExtResource( 150 ), ExtResource( 141 ), ExtResource( 132 ), ExtResource( 126 ), ExtResource( 105 ), ExtResource( 110 ) ],
@@ -557,20 +573,30 @@ animations = [ {
 "loop": true,
 "name": "Style Left",
 "speed": 25.0
+}, {
+"frames": [ ExtResource( 125 ), ExtResource( 139 ), ExtResource( 140 ), ExtResource( 120 ), ExtResource( 130 ), ExtResource( 143 ), ExtResource( 145 ), ExtResource( 128 ), ExtResource( 118 ), ExtResource( 102 ), ExtResource( 99 ), ExtResource( 72 ), ExtResource( 147 ), ExtResource( 149 ), ExtResource( 103 ), ExtResource( 137 ) ],
+"loop": false,
+"name": "Jump Right",
+"speed": 25.0
+}, {
+"frames": [ ExtResource( 353 ), ExtResource( 294 ) ],
+"loop": true,
+"name": "DuckRun Right",
+"speed": 25.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 29.8655, 14.2406 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 20.5369, 13.2687 )
+extents = Vector2( 6.28171, 13.2687 )
 
 [sub_resource type="CapsuleShape2D" id=4]
 radius = 26.318
 height = 92.8268
 
-[node name="Capitan Pelato" type="KinematicBody2D"]
-collision_mask = 2
+[node name="Capitan_Pelato" type="KinematicBody2D"]
+collision_mask = 0
 script = ExtResource( 20 )
 
 [node name="Pelataz" type="AnimatedSprite" parent="."]
@@ -586,20 +612,32 @@ __meta__ = {
 light_mask = 0
 position = Vector2( -0.243996, 60.8473 )
 shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Head" type="Area2D" parent="."]
-collision_layer = 1024
-collision_mask = 4
+collision_layer = 2
+collision_mask = 0
 
 [node name="Collision Head" type="CollisionShape2D" parent="Head"]
 position = Vector2( 1.2388, -58.6368 )
 shape = SubResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Getter" type="Area2D" parent="."]
-collision_mask = 8
+collision_layer = 0
+collision_mask = 32
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="Collision Get" type="CollisionShape2D" parent="Getter"]
+[node name="Collector" type="CollisionShape2D" parent="Getter"]
 shape = SubResource( 4 )
 [connection signal="animation_finished" from="Pelataz" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="body_entered" from="Head" to="." method="_on_Head_body_entered"]
 [connection signal="body_exited" from="Head" to="." method="_on_Head_body_exited"]
+[connection signal="body_entered" from="Getter" to="." method="_on_Feet_body_entered"]
+[connection signal="body_exited" from="Getter" to="." method="_on_Feet_body_exited"]
