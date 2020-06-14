@@ -16,8 +16,16 @@ _global_script_class_icons={
 [application]
 
 config/name="Capitan Pelato"
-run/main_scene="res://Road_To_Fano.scn"
+run/main_scene="res://Game_Map.tscn"
 config/icon="res://icon.png"
+
+[debug]
+
+settings/fps/force_fps=30
+
+[display]
+
+window/vsync/use_vsync=false
 
 [layer_names]
 
@@ -28,5 +36,4 @@ config/icon="res://icon.png"
 
 [rendering]
 
-quality/driver/driver_name="GLES2"
 environment/default_environment="res://default_env.tres"

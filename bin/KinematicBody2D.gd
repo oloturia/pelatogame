@@ -169,10 +169,10 @@ func _on_AnimatedSprite_animation_finished():
 		on_the_floor = true
 		$Pelataz.play("Idle Right")
 
-func _on_Head_body_entered(body):
+func _on_Head_body_entered(_body):
 
 	if jumping:
-		if (($Pelataz.animation == "Jump Left" or $Pelataz.animation == "Jump Right") and $Pelataz.frame >=10) or ($Pelataz.animation == "Style Left" or $Pelataz.animation == "Style Right") :
+		if (($Pelataz.animation == "Jump Left" or $Pelataz.animation == "Jump Right") and $Pelataz.frame >=8) or ($Pelataz.animation == "Style Left" or $Pelataz.animation == "Style Right") :
 			parkouring = true
 			grab = true
 			if velocity.x > 0:
@@ -186,14 +186,14 @@ func _on_Head_body_entered(body):
 		if velocity.x > 5:
 			collision_wall = true
 			inversion = false
-			position.x -= velocity.x*8
+			position.x -= velocity.x
 			velocity.x = 0
 			$Pelataz.play("Ouch Right")
 		elif velocity.x < -5:
 			collision_wall = true
 			inversion = false
 			jumping = false
-			position.x -= velocity.x*8
+			position.x -= velocity.x
 			velocity.x = 0
 			$Pelataz.play("Ouch Left")
 		else:
@@ -208,5 +208,3 @@ func _on_Head_body_entered(body):
 	
 
 
-func _on_Feet_body_entered(body):
-	pass # Replace with function body.

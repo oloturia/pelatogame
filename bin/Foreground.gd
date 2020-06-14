@@ -9,7 +9,7 @@ var increment_y = 0.01
 func _ready():
 	pass 
 	
-func _process(delta):
+func _process(_delta):
 	self.position.x += accele_x
 	accele_x = accele_x + increment_x
 	if accele_x >= 3 :
