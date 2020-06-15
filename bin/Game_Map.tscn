@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://map/map.png" type="Texture" id=1]
 [ext_resource path="res://pelato_animations/pelato_run/012.png" type="Texture" id=2]
@@ -26,6 +26,8 @@
 [ext_resource path="res://map/title_motion.png" type="Texture" id=24]
 [ext_resource path="res://map/selected.png" type="Texture" id=25]
 [ext_resource path="res://FANO.gd" type="Script" id=26]
+[ext_resource path="res://map/yes.png" type="Texture" id=27]
+[ext_resource path="res://map/no.png" type="Texture" id=28]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -70,6 +72,9 @@ animations = [ {
 position = Vector2( 751.118, 303.02 )
 scale = Vector2( 0.558207, 0.558207 )
 texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Pelataz" type="AnimatedSprite" parent="."]
 position = Vector2( 158.881, 148.821 )
@@ -90,16 +95,77 @@ animation = "start"
 script = ExtResource( 3 )
 
 [node name="FANO" type="Button" parent="."]
-margin_left = 724.581
-margin_top = 144.63
-margin_right = 836.581
-margin_bottom = 242.63
+margin_left = 740.0
+margin_top = 151.0
+margin_right = 781.0
+margin_bottom = 192.0
 action_mode = 0
-icon = ExtResource( 25 )
 flat = true
 script = ExtResource( 26 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Selected" type="Sprite" parent="FANO"]
+position = Vector2( 21.6486, 26.537 )
+texture = ExtResource( 25 )
+
+[node name="Complete" type="Sprite" parent="FANO"]
+visible = false
+position = Vector2( 9.77679, 0.698334 )
+texture = ExtResource( 27 )
+centered = false
+
+[node name="Label" type="Label" parent="FANO"]
+margin_left = 1.0
+margin_top = 39.0
+margin_right = 43.0
+margin_bottom = 53.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "FANO"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PESCARA" type="Button" parent="."]
+margin_left = 815.0
+margin_top = 242.0
+margin_right = 856.0
+margin_bottom = 282.0
+action_mode = 0
+flat = true
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="PESCARA"]
+visible = false
+anchor_left = -0.105
+anchor_right = -0.105
+margin_left = -12.3553
+margin_top = 19.8489
+margin_right = 49.6447
+margin_bottom = 33.8489
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "PESCARA"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Locked" type="Sprite" parent="PESCARA"]
+position = Vector2( 9.6792, 17.5659 )
+texture = ExtResource( 28 )
+
+[node name="Complete" type="Sprite" parent="PESCARA"]
+visible = false
+position = Vector2( 12.9056, 7.52824 )
+texture = ExtResource( 27 )
+
+[node name="Selected" type="Sprite" parent="PESCARA"]
+visible = false
+position = Vector2( 10.7546, 18.9999 )
+texture = ExtResource( 25 )
 [connection signal="animation_finished" from="Title_Anim" to="Title_Anim/Title" method="_on_Title_Anim_animation_finished"]
 [connection signal="pressed" from="FANO" to="FANO" method="_on_FANO_pressed"]
+[connection signal="pressed" from="PESCARA" to="PESCARA" method="_on_FANO_pressed"]

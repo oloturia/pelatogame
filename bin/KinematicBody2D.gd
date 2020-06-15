@@ -8,13 +8,14 @@ var on_the_floor = false
 var parkouring = false
 var grab = false
 var ducking = false
+var collision_fagiano = false
 var gravity = 2
 
 func _ready():
 	pass
 
 func _process(delta):
-	if not jumping and not inversion and not collision_wall and on_the_floor:
+	if not jumping and not inversion and not collision_wall and not collision_fagiano and on_the_floor:
 		if velocity.x > 0:
 			if not ducking:
 				$Pelataz.play("Run Right")
@@ -73,12 +74,14 @@ func _process(delta):
 			if velocity.x < 0:
 				velocity.x += 0.1
 			
-
+	
 	if ducking:
 		$Head.position.y  = 60
 	else:
 		$Head.position.y = 0
 	
+	if collision_fagiano and $Pelataz.frame > 7:
+		velocity.x = 0
 	
 	if inversion and on_the_floor:
 		if velocity.x > 0:
@@ -161,16 +164,17 @@ func _on_AnimatedSprite_animation_finished():
 		parkouring = false
 		collision_wall = false
 		on_the_floor = true
+		collision_fagiano = false
 		$Pelataz.play("Idle Left")
 	elif $Pelataz.animation == "Stumble Right":
 		jumping = false
 		parkouring = false
 		collision_wall = false
 		on_the_floor = true
+		collision_fagiano = false
 		$Pelataz.play("Idle Right")
 
-func _on_Head_body_entered(_body):
-
+func _on_Head_body_entered(body):
 	if jumping:
 		if (($Pelataz.animation == "Jump Left" or $Pelataz.animation == "Jump Right") and $Pelataz.frame >=8) or ($Pelataz.animation == "Style Left" or $Pelataz.animation == "Style Right") :
 			parkouring = true
@@ -207,4 +211,14 @@ func _on_Head_body_entered(_body):
 			position.y -=10
 	
 
+func _on_Feet_body_entered(body):
+		jumping = false
+		parkouring = false
+		collision_fagiano = true
+		if velocity.x > 0:
+			velocity.x = 25
+			$Pelataz.play("Stumble Left")
+		else:
+			velocity.x = -25
+			$Pelataz.play("Stumble Right")
 
