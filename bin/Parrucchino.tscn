@@ -17,13 +17,13 @@ animations = [ {
 [sub_resource type="CircleShape2D" id=2]
 radius = 41.8716
 
-[sub_resource type="Curve" id=4]
+[sub_resource type="Curve" id=3]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.742081, 0 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=5]
-curve = SubResource( 4 )
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
 
-[sub_resource type="ParticlesMaterial" id=3]
+[sub_resource type="ParticlesMaterial" id=5]
 emission_shape = 1
 emission_sphere_radius = 0.01
 flag_disable_z = true
@@ -34,7 +34,7 @@ initial_velocity = 100.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 damping = 30.0
-scale_curve = SubResource( 5 )
+scale_curve = SubResource( 4 )
 
 [node name="Parrucchino" type="KinematicBody2D"]
 collision_layer = 0
@@ -45,7 +45,7 @@ script = ExtResource( 4 )
 position = Vector2( -1.48865, -1.48865 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 1 )
-frame = 1
+frame = 5
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -63,7 +63,7 @@ lifetime = 10.0
 one_shot = true
 speed_scale = 5.65
 explosiveness = 1.0
-process_material = SubResource( 3 )
+process_material = SubResource( 5 )
 texture = ExtResource( 5 )
 [connection signal="area_shape_entered" from="Area2D" to="." method="_on_Area2D_area_shape_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

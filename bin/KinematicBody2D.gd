@@ -9,13 +9,15 @@ var parkouring = false
 var grab = false
 var ducking = false
 var collision_fagiano = false
+var arrived = false
 var gravity = 2
+var t = 0
 
 func _ready():
 	pass
 
 func _process(delta):
-	if not jumping and not inversion and not collision_wall and not collision_fagiano and on_the_floor:
+	if not jumping and not arrived and not inversion and not collision_wall and not collision_fagiano and on_the_floor:
 		if velocity.x > 0:
 			if not ducking:
 				$Pelataz.play("Run Right")
@@ -122,9 +124,15 @@ func _process(delta):
 					$Pelataz.play("Fall Left")
 
 	if position.y > 2000:
-			print("bye")
-			get_tree().quit()
-
+			get_tree().reload_current_scene()
+			
+	if arrived:
+		if t == 0:
+			t = OS.get_unix_time()
+		else:
+			if OS.get_unix_time() - t > 5:
+				get_tree().change_scene("res://Game_Map.tscn")
+		
 
 func _on_AnimatedSprite_animation_finished():
 	if $Pelataz.animation == "Jump Left" and not on_the_floor:
@@ -174,7 +182,7 @@ func _on_AnimatedSprite_animation_finished():
 		collision_fagiano = false
 		$Pelataz.play("Idle Right")
 
-func _on_Head_body_entered(body):
+func _on_Head_body_entered(_body):
 	if jumping:
 		if (($Pelataz.animation == "Jump Left" or $Pelataz.animation == "Jump Right") and $Pelataz.frame >=8) or ($Pelataz.animation == "Style Left" or $Pelataz.animation == "Style Right") :
 			parkouring = true
@@ -211,7 +219,7 @@ func _on_Head_body_entered(body):
 			position.y -=10
 	
 
-func _on_Feet_body_entered(body):
+func _on_Feet_body_entered(_body):
 		jumping = false
 		parkouring = false
 		collision_fagiano = true
@@ -222,3 +230,9 @@ func _on_Feet_body_entered(body):
 			velocity.x = -25
 			$Pelataz.play("Stumble Right")
 
+
+func _on_AreaArrivo_arrived():
+	arrived = true
+	velocity.x = 0
+	$Pelataz.play("Idle Right")
+	

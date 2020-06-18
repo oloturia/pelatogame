@@ -77,10 +77,10 @@ __meta__ = {
 }
 
 [node name="Pelataz" type="AnimatedSprite" parent="."]
-position = Vector2( 158.881, 148.821 )
-scale = Vector2( 0.42346, 0.42346 )
+position = Vector2( 47.8732, 50.4482 )
+scale = Vector2( 0.116609, 0.116609 )
 frames = SubResource( 1 )
-frame = 6
+frame = 11
 playing = true
 
 [node name="Title_Anim" type="AnimationPlayer" parent="."]
@@ -166,6 +166,17 @@ texture = ExtResource( 27 )
 visible = false
 position = Vector2( 10.7546, 18.9999 )
 texture = ExtResource( 25 )
+
+[node name="Brief" type="RichTextLabel" parent="."]
+margin_left = 108.805
+margin_top = 7.38998
+margin_right = 493.805
+margin_bottom = 302.39
+text = "MISSION DESCRIPTION:"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="animation_finished" from="Title_Anim" to="Title_Anim/Title" method="_on_Title_Anim_animation_finished"]
 [connection signal="pressed" from="FANO" to="FANO" method="_on_FANO_pressed"]
 [connection signal="pressed" from="PESCARA" to="PESCARA" method="_on_FANO_pressed"]

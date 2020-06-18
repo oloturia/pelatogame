@@ -14,4 +14,5 @@ Veneziamestre;Capitan Pelato deve far qualcosa per l'acqua alta.
 Mentone;Capitan Pelato deve aiutare un ragazzino delle medie con i compiti di matematica.
 Grandola ed Uniti;Capitan Pelato deve trovare una spiegazione a chi sono i mitologici Uniti.
 Montalto Uffugo;Capitan Pelato deve trovare l'antica pietra dai poteri magici di Montalto Uffugo, l'unico indizio: la pietra si trova a Montalto Uffugo.
+Zadina;Capitan Pelato si trova a Zadina
 Portoferraio;La resa dei conti!

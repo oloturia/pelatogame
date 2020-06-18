@@ -9,6 +9,7 @@ func _ready():
 func _on_Area2D_area_shape_entered(_area_id, _area, _area_shape, _self_shape):
 	$Stars.emitting = true
 	$AnimatedSprite.visible = false
+	get_node("..").stop()
 	gotcha = true
 
 
