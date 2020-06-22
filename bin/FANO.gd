@@ -1,20 +1,25 @@
 extends Button
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
+#func _process(_delta):
 #	pass
-
 
 func _on_FANO_pressed():
 	get_tree().change_scene("res://Road_To_Fano.scn")
+	
+
+
+func _on_FANO_mouse_entered():
+	get_node("../Brief").text = """
+	NOME MISSIONE: Road to Fano
+	LOCATION: Comune di FANO (PU)
+	DESCRIZIONE:Capitan Pelato deve raggiungere Fano prima che faccia buio, riuscirà nell'impresa?
+	"""
+
+
+
+func _on_FANO_mouse_exited():
+	get_node("../Brief").text = ""
