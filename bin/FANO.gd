@@ -2,6 +2,12 @@ extends Button
 
 
 func _ready():
+	if Global.level >= 0:
+		self.visible = 1
+	if Global.level >= 1:
+		$Selected.visible = 0
+		$Complete.visible = 1
+		$Label.visible = 0
 	pass
 
 #func _process(_delta):

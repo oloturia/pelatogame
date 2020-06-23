@@ -19,6 +19,10 @@ config/name="Capitan Pelato"
 run/main_scene="res://Game_Map.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://global.gd"
+
 [debug]
 
 settings/fps/force_fps=30

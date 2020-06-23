@@ -17,5 +17,6 @@ func _ready():
 
 
 func _on_AreaArrivo_area_entered(area):
+	Global.level +=1
 	if area.name == "Getter":
 		emit_signal("arrived")

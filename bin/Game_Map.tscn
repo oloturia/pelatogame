@@ -2,6 +2,7 @@
 
 [ext_resource path="res://map/map.png" type="Texture" id=1]
 [ext_resource path="res://pelato_animations/pelato_run/012.png" type="Texture" id=2]
+[ext_resource path="res://PESCARA.gd" type="Script" id=3]
 [ext_resource path="res://pelato_animations/pelato_run/010.png" type="Texture" id=4]
 [ext_resource path="res://pelato_animations/pelato_run/013.png" type="Texture" id=5]
 [ext_resource path="res://pelato_animations/pelato_run/011.png" type="Texture" id=6]
@@ -24,7 +25,6 @@
 [ext_resource path="res://map/selected.png" type="Texture" id=25]
 [ext_resource path="res://FANO.gd" type="Script" id=26]
 [ext_resource path="res://map/yes.png" type="Texture" id=27]
-[ext_resource path="res://map/no.png" type="Texture" id=28]
 [ext_resource path="res://map/PELATOS.png" type="Texture" id=29]
 
 [sub_resource type="Animation" id=1]
@@ -70,6 +70,7 @@ autoplay = "fade"
 anims/fade = SubResource( 1 )
 
 [node name="Monitor" type="Sprite" parent="Monitor Animation"]
+visible = false
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 511.858, 299.932 )
 scale = Vector2( 1.82925, 1.6985 )
@@ -89,7 +90,7 @@ visible = false
 position = Vector2( 47.8732, 50.4482 )
 scale = Vector2( 0.116609, 0.116609 )
 frames = SubResource( 2 )
-frame = 17
+frame = 18
 playing = true
 
 [node name="Map" type="Sprite" parent="."]
@@ -99,47 +100,6 @@ texture = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
-
-[node name="PESCARA" type="Button" parent="."]
-margin_left = 815.0
-margin_top = 242.0
-margin_right = 856.0
-margin_bottom = 282.0
-mouse_default_cursor_shape = 2
-action_mode = 0
-flat = true
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="PESCARA"]
-visible = false
-anchor_left = -0.105
-anchor_right = -0.105
-margin_left = -12.3553
-margin_top = 19.8489
-margin_right = 49.6447
-margin_bottom = 33.8489
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "PESCARA"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Locked" type="Sprite" parent="PESCARA"]
-position = Vector2( -118.199, -44.3367 )
-texture = ExtResource( 28 )
-
-[node name="Complete" type="Sprite" parent="PESCARA"]
-visible = false
-position = Vector2( 12.9056, 7.52824 )
-texture = ExtResource( 27 )
-
-[node name="Selected" type="Sprite" parent="PESCARA"]
-visible = false
-position = Vector2( 10.7546, 18.9999 )
-texture = ExtResource( 25 )
 
 [node name="Brief" type="RichTextLabel" parent="."]
 margin_left = 244.0
@@ -151,6 +111,43 @@ scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="PESCARA" type="Button" parent="."]
+visible = false
+margin_left = 654.0
+margin_top = 163.0
+margin_right = 697.0
+margin_bottom = 206.0
+mouse_default_cursor_shape = 2
+action_mode = 0
+flat = true
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="PESCARA"]
+anchor_left = -0.105
+anchor_right = -0.105
+margin_left = -2.27748
+margin_top = 37.9331
+margin_right = 59.7225
+margin_bottom = 51.9331
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "PESCARA"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Complete" type="Sprite" parent="PESCARA"]
+visible = false
+position = Vector2( 25.0669, 13.1062 )
+texture = ExtResource( 27 )
+
+[node name="Selected" type="Sprite" parent="PESCARA"]
+position = Vector2( 23.6597, 23.7715 )
+scale = Vector2( 0.21509, 0.21509 )
+texture = ExtResource( 25 )
 
 [node name="FANO" type="Button" parent="."]
 margin_left = 644.293
@@ -166,8 +163,8 @@ __meta__ = {
 }
 
 [node name="Selected" type="Sprite" parent="FANO"]
-position = Vector2( 6.76294, 8.38281 )
-scale = Vector2( 0.287893, 0.287893 )
+position = Vector2( 8.45496, 10.6993 )
+scale = Vector2( 0.247607, 0.247607 )
 texture = ExtResource( 25 )
 
 [node name="Complete" type="Sprite" parent="FANO"]
@@ -186,7 +183,9 @@ text = "FANO"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="PESCARA" to="PESCARA" method="_on_FANO_pressed"]
+[connection signal="mouse_entered" from="PESCARA" to="PESCARA" method="_on_PESCARA_mouse_entered"]
+[connection signal="mouse_exited" from="PESCARA" to="PESCARA" method="_on_PESCARA_mouse_exited"]
+[connection signal="pressed" from="PESCARA" to="PESCARA" method="_on_PESCARA_pressed"]
 [connection signal="mouse_entered" from="FANO" to="FANO" method="_on_FANO_mouse_entered"]
 [connection signal="mouse_exited" from="FANO" to="FANO" method="_on_FANO_mouse_exited"]
 [connection signal="pressed" from="FANO" to="FANO" method="_on_FANO_pressed"]
