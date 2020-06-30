@@ -10,20 +10,37 @@ var grab = false
 var ducking = false
 var collision_fagiano = false
 var arrived = false
+var panting = false
 var gravity = 2
 var t = 0
+var stamina = 1000
 
 func _ready():
 	pass
 
 func _process(delta):
-	if not jumping and not arrived and not inversion and not collision_wall and not collision_fagiano and on_the_floor:
+	if stamina < 100 and not panting:
+		panting = true
 		if velocity.x > 0:
+			$Pelataz.play("Anf Right")
+		else:
+			$Pelataz.play("Anf Left")
+		velocity.x = 0
+			
+	if panting:
+		stamina += 10
+		if $Pelataz.frame == 18 and stamina < 1000:
+			$Pelataz.frame = 6
+			
+	if not jumping and not arrived and not inversion and not collision_wall and not collision_fagiano and on_the_floor and not panting:
+		if velocity.x > 0:
+			stamina -= velocity.x
 			if not ducking:
 				$Pelataz.play("Run Right")
 			else:
 				$Pelataz.play("DuckRun Right")
 		elif velocity.x < 0:
+			stamina += velocity.x
 			if not ducking:
 				$Pelataz.play("Run Left")
 			else:
@@ -31,16 +48,34 @@ func _process(delta):
 				
 		if velocity.x > 0 and velocity.x < 0.5:
 			velocity.x = 0
-			$Pelataz.play("Idle Left")
+			if stamina < 300:
+				panting = true
+				$Pelataz.play("Anf Left")
+			else:
+				if stamina < 1000:
+					stamina +=10
+				else:
+					stamina = 1000
+				$Pelataz.play("Idle Left")
 		if velocity.x < 0 and velocity.x > -0.5:
 			velocity.x = 0
-			$Pelataz.play("Idle Right")
+			if stamina < 300:
+				panting = true
+				$Pelataz.play("Anf Right")
+			else:
+				if stamina < 1000:
+					stamina +=10
+				else:
+					stamina = 1000
+				velocity.x = 0
+				$Pelataz.play("Idle Right")
 
 		if Input.is_action_pressed("ui_right"):
 			if not ducking:
 				if velocity.x < -5:
 					inversion = true
-				if velocity.x < 10:
+				#if velocity.x < 10:
+				if velocity.x < (stamina/100):
 					velocity.x += 0.5
 			else:
 					velocity.x += 0.1
@@ -48,11 +83,13 @@ func _process(delta):
 			if not ducking:
 				if velocity.x > 5:
 					inversion = true
-				if velocity.x > -10:
+				#if velocity.x > -10:
+				if velocity.x > -(stamina/100):
 					velocity.x -= 0.5
 			else:
 					velocity.x -= 0.1
 		elif Input.is_action_pressed("ui_up") and not ducking:
+			stamina -= 100
 			if velocity.x > 0 or $Pelataz.animation == "Idle Left":
 				velocity.x += 1
 				$Pelataz.play("Jump Right")
@@ -78,7 +115,7 @@ func _process(delta):
 			
 	
 	if ducking:
-		$Head.position.y  = 60
+		$Head.position.y  = 100
 	else:
 		$Head.position.y = 0
 	
@@ -135,6 +172,14 @@ func _process(delta):
 		
 
 func _on_AnimatedSprite_animation_finished():
+	if $Pelataz.animation == "Anf Left":
+			stamina = 1000
+			panting = false
+			$Pelataz.play("Idle Right")
+	if $Pelataz.animation == "Anf Right":
+			stamina = 1000
+			panting = false
+			$Pelataz.play("Idle Left")
 	if $Pelataz.animation == "Jump Left" and not on_the_floor:
 		$Pelataz.play("Style Left")
 	elif $Pelataz.animation == "Jump Right" and not on_the_floor:
@@ -236,3 +281,5 @@ func _on_AreaArrivo_arrived():
 	velocity.x = 0
 	$Pelataz.play("Idle Right")
 	
+
+

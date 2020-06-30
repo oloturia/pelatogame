@@ -434,16 +434,6 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 244 ), ExtResource( 291 ) ],
-"loop": false,
-"name": "Ducking Left",
-"speed": 25.0
-}, {
-"frames": [ ExtResource( 237 ), ExtResource( 291 ) ],
-"loop": true,
-"name": "DuckRun Left",
-"speed": 25.0
-}, {
 "frames": [ ExtResource( 117 ), ExtResource( 116 ), ExtResource( 115 ), ExtResource( 114 ), ExtResource( 129 ), ExtResource( 100 ), ExtResource( 133 ), ExtResource( 111 ), ExtResource( 121 ), ExtResource( 113 ), ExtResource( 150 ), ExtResource( 141 ), ExtResource( 132 ), ExtResource( 126 ), ExtResource( 105 ), ExtResource( 110 ) ],
 "loop": false,
 "name": "Jump Left",
@@ -465,7 +455,7 @@ animations = [ {
 "speed": 25.0
 }, {
 "frames": [ ExtResource( 318 ), ExtResource( 319 ), ExtResource( 370 ), ExtResource( 433 ), ExtResource( 298 ), ExtResource( 299 ), ExtResource( 300 ), ExtResource( 303 ), ExtResource( 302 ), ExtResource( 301 ), ExtResource( 305 ), ExtResource( 304 ), ExtResource( 307 ), ExtResource( 306 ), ExtResource( 308 ), ExtResource( 309 ), ExtResource( 311 ), ExtResource( 310 ), ExtResource( 316 ), ExtResource( 315 ), ExtResource( 313 ), ExtResource( 317 ), ExtResource( 312 ), ExtResource( 314 ) ],
-"loop": false,
+"loop": true,
 "name": "Anf Right",
 "speed": 25.0
 }, {
@@ -480,7 +470,7 @@ animations = [ {
 "speed": 25.0
 }, {
 "frames": [ ExtResource( 328 ), ExtResource( 324 ), ExtResource( 236 ), ExtResource( 374 ), ExtResource( 272 ), ExtResource( 269 ), ExtResource( 273 ), ExtResource( 274 ), ExtResource( 271 ), ExtResource( 276 ), ExtResource( 275 ), ExtResource( 283 ), ExtResource( 284 ), ExtResource( 282 ), ExtResource( 285 ), ExtResource( 277 ), ExtResource( 280 ), ExtResource( 281 ), ExtResource( 278 ), ExtResource( 279 ), ExtResource( 378 ), ExtResource( 376 ), ExtResource( 377 ), ExtResource( 380 ) ],
-"loop": false,
+"loop": true,
 "name": "Anf Left",
 "speed": 25.0
 }, {
@@ -583,13 +573,23 @@ animations = [ {
 "loop": false,
 "name": "Ducking Right",
 "speed": 25.0
+}, {
+"frames": [ ExtResource( 244 ), ExtResource( 291 ) ],
+"loop": false,
+"name": "Ducking Left",
+"speed": 25.0
+}, {
+"frames": [ ExtResource( 237 ), ExtResource( 291 ) ],
+"loop": true,
+"name": "DuckRun Left",
+"speed": 25.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 29.8655, 14.2406 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 6.28171, 13.2687 )
+extents = Vector2( 6.28171, 12.4196 )
 
 [sub_resource type="CapsuleShape2D" id=4]
 radius = 26.318
@@ -627,11 +627,8 @@ __meta__ = {
 }
 
 [node name="Collision Head" type="CollisionShape2D" parent="Head"]
-position = Vector2( 1.2388, -58.6368 )
+position = Vector2( 0, -60 )
 shape = SubResource( 3 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Getter" type="Area2D" parent="."]
 collision_layer = 0
