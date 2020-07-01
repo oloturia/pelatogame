@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://map/map.png" type="Texture" id=1]
 [ext_resource path="res://pelato_animations/pelato_run/012.png" type="Texture" id=2]
@@ -22,9 +22,12 @@
 [ext_resource path="res://pelato_animations/pelato_run/009.png" type="Texture" id=20]
 [ext_resource path="res://pelato_animations/pelato_run/003.png" type="Texture" id=21]
 [ext_resource path="res://map/PELATOS_loading.png" type="Texture" id=22]
+[ext_resource path="res://BASSANO.gd" type="Script" id=23]
+[ext_resource path="res://CASALECCHIO.gd" type="Script" id=24]
 [ext_resource path="res://map/selected.png" type="Texture" id=25]
 [ext_resource path="res://FANO.gd" type="Script" id=26]
 [ext_resource path="res://map/yes.png" type="Texture" id=27]
+[ext_resource path="res://REGGIO.gd" type="Script" id=28]
 [ext_resource path="res://map/PELATOS.png" type="Texture" id=29]
 
 [sub_resource type="Animation" id=1]
@@ -90,7 +93,7 @@ visible = false
 position = Vector2( 47.8732, 50.4482 )
 scale = Vector2( 0.116609, 0.116609 )
 frames = SubResource( 2 )
-frame = 12
+frame = 1
 playing = true
 
 [node name="Map" type="Sprite" parent="."]
@@ -149,6 +152,84 @@ position = Vector2( 23.6597, 23.7715 )
 scale = Vector2( 0.21509, 0.21509 )
 texture = ExtResource( 25 )
 
+[node name="REGGIO" type="Button" parent="."]
+visible = false
+margin_left = 684.954
+margin_top = 258.641
+margin_right = 727.954
+margin_bottom = 301.641
+mouse_default_cursor_shape = 2
+action_mode = 0
+flat = true
+script = ExtResource( 28 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="REGGIO"]
+visible = false
+anchor_left = -0.105
+anchor_right = -0.105
+margin_left = -40.3751
+margin_top = 34.7583
+margin_right = 93.6249
+margin_bottom = 48.7583
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "REGGIO COLUMBRIA"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Complete" type="Sprite" parent="REGGIO"]
+visible = false
+position = Vector2( 25.0669, 13.1062 )
+texture = ExtResource( 27 )
+
+[node name="Selected" type="Sprite" parent="REGGIO"]
+visible = false
+position = Vector2( 22.469, 23.3746 )
+scale = Vector2( 0.21509, 0.21509 )
+texture = ExtResource( 25 )
+
+[node name="CASALECCHIO" type="Button" parent="."]
+visible = false
+margin_left = 602.806
+margin_top = 118.95
+margin_right = 645.806
+margin_bottom = 161.95
+mouse_default_cursor_shape = 2
+action_mode = 0
+flat = true
+script = ExtResource( 24 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CASALECCHIO"]
+anchor_left = -0.105
+anchor_right = -0.105
+margin_left = -40.3751
+margin_top = 34.7583
+margin_right = 93.6249
+margin_bottom = 48.7583
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "CASALECCHIO DI
+RENO"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Complete" type="Sprite" parent="CASALECCHIO"]
+visible = false
+position = Vector2( 25.0669, 13.1062 )
+texture = ExtResource( 27 )
+
+[node name="Selected" type="Sprite" parent="CASALECCHIO"]
+position = Vector2( 22.8657, 22.9778 )
+scale = Vector2( 0.21509, 0.21509 )
+texture = ExtResource( 25 )
+
 [node name="FANO" type="Button" parent="."]
 margin_left = 644.293
 margin_top = 140.807
@@ -183,9 +264,56 @@ text = "FANO"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="BASSANO" type="Button" parent="."]
+visible = false
+margin_left = 623.528
+margin_top = 91.9615
+margin_right = 643.528
+margin_bottom = 111.962
+mouse_default_cursor_shape = 2
+action_mode = 0
+flat = true
+script = ExtResource( 23 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Selected" type="Sprite" parent="BASSANO"]
+position = Vector2( 8.45496, 10.6993 )
+scale = Vector2( 0.247607, 0.247607 )
+texture = ExtResource( 25 )
+
+[node name="Complete" type="Sprite" parent="BASSANO"]
+visible = false
+position = Vector2( 9.77679, 0.698334 )
+texture = ExtResource( 27 )
+centered = false
+
+[node name="Label" type="Label" parent="BASSANO"]
+margin_left = -28.8214
+margin_top = 21.0561
+margin_right = 51.1786
+margin_bottom = 52.0561
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "BASSANO
+DEL GRAPPA"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="mouse_entered" from="PESCARA" to="PESCARA" method="_on_PESCARA_mouse_entered"]
 [connection signal="mouse_exited" from="PESCARA" to="PESCARA" method="_on_PESCARA_mouse_exited"]
 [connection signal="pressed" from="PESCARA" to="PESCARA" method="_on_PESCARA_pressed"]
+[connection signal="mouse_entered" from="REGGIO" to="REGGIO" method="_on_REGGIO_mouse_entered"]
+[connection signal="mouse_exited" from="REGGIO" to="REGGIO" method="_on_REGGIO_mouse_exited"]
+[connection signal="pressed" from="REGGIO" to="REGGIO" method="_on_REGGIO_pressed"]
+[connection signal="mouse_entered" from="CASALECCHIO" to="CASALECCHIO" method="_on_CASALECCHIO_mouse_entered"]
+[connection signal="mouse_exited" from="CASALECCHIO" to="CASALECCHIO" method="_on_CASALECCHIO_mouse_exited"]
+[connection signal="pressed" from="CASALECCHIO" to="CASALECCHIO" method="_on_CASALECCHIO_pressed"]
 [connection signal="mouse_entered" from="FANO" to="FANO" method="_on_FANO_mouse_entered"]
 [connection signal="mouse_exited" from="FANO" to="FANO" method="_on_FANO_mouse_exited"]
 [connection signal="pressed" from="FANO" to="FANO" method="_on_FANO_pressed"]
+[connection signal="mouse_entered" from="BASSANO" to="BASSANO" method="_on_BASSANO_mouse_entered"]
+[connection signal="mouse_exited" from="BASSANO" to="BASSANO" method="_on_BASSANO_mouse_exited"]
+[connection signal="pressed" from="BASSANO" to="BASSANO" method="_on_BASSANO_pressed"]

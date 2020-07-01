@@ -13,12 +13,13 @@ var arrived = false
 var panting = false
 var gravity = 2
 var t = 0
-var stamina = 1000
+var stamina = 3000
 
 func _ready():
 	pass
 
 func _process(delta):
+	
 	if stamina < 100 and not panting:
 		panting = true
 		if velocity.x > 0:
@@ -28,10 +29,14 @@ func _process(delta):
 		velocity.x = 0
 			
 	if panting:
-		stamina += 10
 		if $Pelataz.frame == 18 and stamina < 1000:
 			$Pelataz.frame = 6
 			
+	if velocity.x == 0 and stamina != 3000:
+		stamina += 100
+		if stamina > 3000:
+			stamina = 3000
+	
 	if not jumping and not arrived and not inversion and not collision_wall and not collision_fagiano and on_the_floor and not panting:
 		if velocity.x > 0:
 			stamina -= velocity.x
@@ -48,27 +53,20 @@ func _process(delta):
 				
 		if velocity.x > 0 and velocity.x < 0.5:
 			velocity.x = 0
-			if stamina < 300:
+			if stamina < 1000:
 				panting = true
 				$Pelataz.play("Anf Left")
 			else:
-				if stamina < 1000:
-					stamina +=10
-				else:
-					stamina = 1000
 				$Pelataz.play("Idle Left")
+
 		if velocity.x < 0 and velocity.x > -0.5:
 			velocity.x = 0
-			if stamina < 300:
+			if stamina < 1000:
 				panting = true
 				$Pelataz.play("Anf Right")
 			else:
-				if stamina < 1000:
-					stamina +=10
-				else:
-					stamina = 1000
-				velocity.x = 0
 				$Pelataz.play("Idle Right")
+
 
 		if Input.is_action_pressed("ui_right"):
 			if not ducking:
@@ -173,11 +171,11 @@ func _process(delta):
 
 func _on_AnimatedSprite_animation_finished():
 	if $Pelataz.animation == "Anf Left":
-			stamina = 1000
+			stamina = 3000
 			panting = false
 			$Pelataz.play("Idle Right")
 	if $Pelataz.animation == "Anf Right":
-			stamina = 1000
+			stamina = 3000
 			panting = false
 			$Pelataz.play("Idle Left")
 	if $Pelataz.animation == "Jump Left" and not on_the_floor:
@@ -279,6 +277,12 @@ func _on_Feet_body_entered(_body):
 func _on_AreaArrivo_arrived():
 	arrived = true
 	velocity.x = 0
+	velocity.y = 0
+	jumping = false
+	parkouring = false
+	collision_fagiano = false
+	inversion = false
+	collision_wall = false
 	$Pelataz.play("Idle Right")
 	
 

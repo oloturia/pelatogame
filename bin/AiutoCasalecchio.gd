@@ -16,20 +16,10 @@ func _process(delta):
 		$body.play("still")
 	if nobattuta == 2:
 		$body.play("talking")
-		$battuta.bbcode_text = "[center]Un mio amico ebbe dei problemi quando nacque...[/center]"
+		$battuta.bbcode_text = "[center]Il cane è andato via.[/center]"
 	if nobattuta == 3:
 		$body.play("still")
-	if nobattuta == 4:
-		$body.play("talking")
-		$battuta.bbcode_text = "[center]...crescendo si trasferì da Palermo a Milano dove divenne autista di tram, sai perché?[/center]"
-	if nobattuta == 5:
-		$body.play("still")
-	if nobattuta == 6:
-		$body.play("talking")
-		$battuta.bbcode_text = "[center]...perché aveva subito un TRAM infantile.[/center]"
-	if nobattuta == 7:
-		$body.play("still")
-	if nobattuta > 9:
+	if nobattuta > 4:
 		$balloon.visible = 0
 		$battuta.visible = 0
 
@@ -55,4 +45,4 @@ func _on_Timer_timeout():
 
 func _on_balloon_animation_finished():
 	$battuta.visible = 1
-	$battuta.bbcode_text = "[center]Hola Capitan\nPelato![/center]"
+	$battuta.bbcode_text = "[center]Capitan Pelato![/center]"
