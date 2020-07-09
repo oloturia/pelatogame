@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/orcamiseria.ogg-7897e89fe595c44f27ccd7f7ee80b078.oggstr"
+
+[deps]
+
+source_file="res://sound/cp/orcamiseria.ogg"
+dest_files=[ "res://.import/orcamiseria.ogg-7897e89fe595c44f27ccd7f7ee80b078.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

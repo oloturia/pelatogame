@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/perbaccobacchissimo.ogg-903d33c811f0d51b8faddf6476df403d.oggstr"
+
+[deps]
+
+source_file="res://sound/cp/perbaccobacchissimo.ogg"
+dest_files=[ "res://.import/perbaccobacchissimo.ogg-903d33c811f0d51b8faddf6476df403d.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

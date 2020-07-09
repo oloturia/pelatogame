@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/accipicchia.ogg-3eb810174abc10a0c08a3a84a28fe2cf.oggstr"
+
+[deps]
+
+source_file="res://sound/cp/accipicchia.ogg"
+dest_files=[ "res://.import/accipicchia.ogg-3eb810174abc10a0c08a3a84a28fe2cf.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

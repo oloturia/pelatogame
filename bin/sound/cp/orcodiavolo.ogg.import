@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/orcodiavolo.ogg-0ebbc6200d153b2dac425b00957156ef.oggstr"
+
+[deps]
+
+source_file="res://sound/cp/orcodiavolo.ogg"
+dest_files=[ "res://.import/orcodiavolo.ogg-0ebbc6200d153b2dac425b00957156ef.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -14,7 +14,7 @@ func _ready():
 #	pass
 
 func _on_CASALECCHIO_pressed():
-	get_tree().change_scene("res://Entro_Reggio_Esco_Reggio.tscn.scn")
+	get_tree().change_scene("res://Notti di fuoco a Casalecchio di Reno.tscn")
 	
 
 

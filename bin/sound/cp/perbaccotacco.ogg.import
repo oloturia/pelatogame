@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/perbaccotacco.ogg-00c23c4aa3bc45460958151f1e3e67b0.oggstr"
+
+[deps]
+
+source_file="res://sound/cp/perbaccotacco.ogg"
+dest_files=[ "res://.import/perbaccotacco.ogg-00c23c4aa3bc45460958151f1e3e67b0.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

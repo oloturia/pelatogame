@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/perdindirindina.ogg-781c82b228f7247640180e90d87df99b.oggstr"
+
+[deps]
+
+source_file="res://sound/cp/perdindirindina.ogg"
+dest_files=[ "res://.import/perdindirindina.ogg-781c82b228f7247640180e90d87df99b.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

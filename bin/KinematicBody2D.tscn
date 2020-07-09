@@ -1,4 +1,4 @@
-[gd_scene load_steps=437 format=2]
+[gd_scene load_steps=438 format=2]
 
 [ext_resource path="res://pelato_animations/pelato_run/010.png" type="Texture" id=1]
 [ext_resource path="res://pelato_animations/pelato_run/012.png" type="Texture" id=2]
@@ -424,6 +424,7 @@
 [ext_resource path="res://pelato_animations/pelato_stumble_inverse/000.png" type="Texture" id=422]
 [ext_resource path="res://pelato_animations/pelato_stumble_inverse/002.png" type="Texture" id=423]
 [ext_resource path="res://pelato_animations/pelato_with_style_inverse/006.png" type="Texture" id=424]
+[ext_resource path="res://Pelataz.gd" type="Script" id=426]
 [ext_resource path="res://pelato_animations/pelato_stumble_inverse/032.png" type="Texture" id=427]
 [ext_resource path="res://pelato_animations/pelato_stumble_inverse/031.png" type="Texture" id=428]
 [ext_resource path="res://pelato_animations/pelato_stumble_inverse/029.png" type="Texture" id=429]
@@ -524,12 +525,12 @@ animations = [ {
 "name": "Wait Left",
 "speed": 25.0
 }, {
-"frames": [ ExtResource( 164 ), ExtResource( 165 ), ExtResource( 154 ), ExtResource( 188 ), ExtResource( 155 ), ExtResource( 187 ), ExtResource( 160 ), ExtResource( 163 ), ExtResource( 159 ), ExtResource( 158 ), ExtResource( 161 ), ExtResource( 162 ), ExtResource( 156 ), ExtResource( 157 ), ExtResource( 153 ), ExtResource( 152 ), ExtResource( 168 ), ExtResource( 167 ), ExtResource( 169 ), ExtResource( 171 ), ExtResource( 170 ), ExtResource( 172 ), ExtResource( 174 ), ExtResource( 173 ), ExtResource( 175 ), ExtResource( 177 ), ExtResource( 176 ), ExtResource( 179 ), ExtResource( 178 ), ExtResource( 181 ), ExtResource( 182 ), ExtResource( 180 ), ExtResource( 184 ), ExtResource( 183 ), ExtResource( 185 ), ExtResource( 186 ), ExtResource( 190 ), ExtResource( 189 ), ExtResource( 191 ), ExtResource( 192 ), ExtResource( 193 ), ExtResource( 195 ) ],
+"frames": [ ExtResource( 164 ), ExtResource( 165 ), ExtResource( 154 ), ExtResource( 188 ), ExtResource( 155 ), ExtResource( 187 ), ExtResource( 160 ), ExtResource( 163 ), ExtResource( 159 ), ExtResource( 158 ), ExtResource( 161 ), ExtResource( 162 ), ExtResource( 156 ), ExtResource( 157 ), ExtResource( 153 ), ExtResource( 152 ), ExtResource( 168 ), ExtResource( 167 ), ExtResource( 169 ), ExtResource( 171 ), ExtResource( 170 ), ExtResource( 172 ), ExtResource( 174 ), ExtResource( 173 ), ExtResource( 175 ), ExtResource( 177 ), ExtResource( 176 ), ExtResource( 179 ), ExtResource( 178 ), ExtResource( 181 ), ExtResource( 182 ), ExtResource( 180 ), ExtResource( 184 ), ExtResource( 175 ), ExtResource( 177 ), ExtResource( 176 ), ExtResource( 179 ), ExtResource( 178 ), ExtResource( 181 ), ExtResource( 182 ), ExtResource( 180 ), ExtResource( 184 ), ExtResource( 183 ), ExtResource( 185 ), ExtResource( 186 ), ExtResource( 190 ), ExtResource( 189 ), ExtResource( 191 ), ExtResource( 192 ), ExtResource( 193 ), ExtResource( 195 ) ],
 "loop": false,
 "name": "Ouch Right",
 "speed": 25.0
 }, {
-"frames": [ ExtResource( 194 ), ExtResource( 196 ), ExtResource( 215 ), ExtResource( 166 ), ExtResource( 217 ), ExtResource( 216 ), ExtResource( 219 ), ExtResource( 218 ), ExtResource( 221 ), ExtResource( 220 ), ExtResource( 222 ), ExtResource( 223 ), ExtResource( 225 ), ExtResource( 224 ), ExtResource( 226 ), ExtResource( 227 ), ExtResource( 229 ), ExtResource( 230 ), ExtResource( 228 ), ExtResource( 231 ), ExtResource( 232 ), ExtResource( 233 ), ExtResource( 234 ), ExtResource( 197 ), ExtResource( 235 ), ExtResource( 199 ), ExtResource( 198 ), ExtResource( 201 ), ExtResource( 200 ), ExtResource( 202 ), ExtResource( 203 ), ExtResource( 205 ), ExtResource( 204 ), ExtResource( 206 ), ExtResource( 208 ), ExtResource( 207 ), ExtResource( 210 ), ExtResource( 209 ), ExtResource( 211 ), ExtResource( 214 ), ExtResource( 213 ), ExtResource( 212 ) ],
+"frames": [ ExtResource( 194 ), ExtResource( 196 ), ExtResource( 215 ), ExtResource( 166 ), ExtResource( 217 ), ExtResource( 216 ), ExtResource( 219 ), ExtResource( 218 ), ExtResource( 221 ), ExtResource( 220 ), ExtResource( 222 ), ExtResource( 223 ), ExtResource( 225 ), ExtResource( 224 ), ExtResource( 226 ), ExtResource( 227 ), ExtResource( 229 ), ExtResource( 230 ), ExtResource( 228 ), ExtResource( 231 ), ExtResource( 232 ), ExtResource( 233 ), ExtResource( 234 ), ExtResource( 197 ), ExtResource( 235 ), ExtResource( 199 ), ExtResource( 198 ), ExtResource( 201 ), ExtResource( 200 ), ExtResource( 202 ), ExtResource( 203 ), ExtResource( 205 ), ExtResource( 204 ), ExtResource( 206 ), ExtResource( 235 ), ExtResource( 199 ), ExtResource( 198 ), ExtResource( 201 ), ExtResource( 200 ), ExtResource( 202 ), ExtResource( 203 ), ExtResource( 205 ), ExtResource( 204 ), ExtResource( 208 ), ExtResource( 207 ), ExtResource( 210 ), ExtResource( 209 ), ExtResource( 211 ), ExtResource( 214 ), ExtResource( 213 ), ExtResource( 212 ) ],
 "loop": false,
 "name": "Ouch Left",
 "speed": 25.0
@@ -607,9 +608,12 @@ scale = Vector2( 0.223817, 0.223817 )
 frames = SubResource( 1 )
 animation = "Idle Left"
 frame = 8
+script = ExtResource( 426 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Pelataz"]
 
 [node name="Body" type="CollisionShape2D" parent="."]
 light_mask = 0

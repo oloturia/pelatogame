@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/corpodibacco.ogg-8a570c05b52b0559a5208c2e851984d3.oggstr"
+
+[deps]
+
+source_file="res://sound/cp/corpodibacco.ogg"
+dest_files=[ "res://.import/corpodibacco.ogg-8a570c05b52b0559a5208c2e851984d3.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

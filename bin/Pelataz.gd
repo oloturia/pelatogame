@@ -1,22 +1,45 @@
 extends AnimatedSprite
 
+var step = preload("res://sound/step.ogg")
+var audio_node = null
+var swearing = []
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	audio_node = $AudioStreamPlayer
+	audio_node.connect("finished",self,"destroy_self")
+	audio_node.stop()
+	swearing.append(preload("res://sound/cp/acciderba.ogg"))
+	swearing.append(preload("res://sound/cp/accipicchia.ogg"))
+	swearing.append(preload("res://sound/cp/corbezzoli.ogg"))
+	swearing.append(preload("res://sound/cp/corpodibacco.ogg"))
+	swearing.append(preload("res://sound/cp/mondoladro.ogg"))
+	swearing.append(preload("res://sound/cp/nespole.ogg"))
+	swearing.append(preload("res://sound/cp/orcamiseria.ogg"))
+	swearing.append(preload("res://sound/cp/orcocane.ogg"))
+	swearing.append(preload("res://sound/cp/orcodiavolo.ogg"))
+	swearing.append(preload("res://sound/cp/perbaccobacchissimo.ogg"))
+	swearing.append(preload("res://sound/cp/perbaccobaccone.ogg"))
+	swearing.append(preload("res://sound/cp/perbaccotacco.ogg"))
+	swearing.append(preload("res://sound/cp/perdindirindina.ogg"))
+	swearing.append(preload("res://sound/cp/pergiove.ogg"))
+	swearing.append(preload("res://sound/cp/poffarbacco.ogg"))
+	swearing.append(preload("res://sound/cp/sacripante.ogg"))
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if self.animation == "Run Left" or self.animation == "Run Right":
 		if self.frame == 8 or self.frame == 18:
-			$step.play()
-		else:
-			$step.stop()
-	else:
-		$step.stop()
+			audio_node.stream = step
+			audio_node.play()
+	
+	if self.animation == "Ouch Left" or self.animation == "Ouch Right":
+		if self.frame == 12 or self.frame == 16 or self.frame == 21:
+			audio_node.stream = step
+			audio_node.play()
+		if self.frame == 24:
+			swearing()
+
+
+func swearing():
+	var swear = randi()%16
+	audio_node.stream = swearing[swear]
+	audio_node.play()

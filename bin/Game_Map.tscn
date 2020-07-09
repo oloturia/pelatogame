@@ -93,7 +93,7 @@ visible = false
 position = Vector2( 47.8732, 50.4482 )
 scale = Vector2( 0.116609, 0.116609 )
 frames = SubResource( 2 )
-frame = 1
+frame = 15
 playing = true
 
 [node name="Map" type="Sprite" parent="."]

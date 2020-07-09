@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/nespole.ogg-1ab38496584d01167bccbdae6f8743b5.oggstr"
+
+[deps]
+
+source_file="res://sound/cp/nespole.ogg"
+dest_files=[ "res://.import/nespole.ogg-1ab38496584d01167bccbdae6f8743b5.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

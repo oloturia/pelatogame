@@ -14,7 +14,7 @@ func _ready():
 #	pass
 
 func _on_PESCARA_pressed():
-	get_tree().change_scene("res://Dalle_Ande_a_Pescara.scn")
+	get_tree().change_scene("res://Dalle_Ande_a_Pescara.tscn")
 	
 
 

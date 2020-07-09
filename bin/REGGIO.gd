@@ -14,7 +14,7 @@ func _ready():
 #	pass
 
 func _on_REGGIO_pressed():
-	get_tree().change_scene("res://Entro_Reggio_Esco_Reggio.tscn.scn")
+	get_tree().change_scene("res://Entro_Reggio_Esco_Reggio.tscn")
 	
 
 
