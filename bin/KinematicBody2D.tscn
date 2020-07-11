@@ -435,16 +435,6 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 117 ), ExtResource( 116 ), ExtResource( 115 ), ExtResource( 114 ), ExtResource( 129 ), ExtResource( 100 ), ExtResource( 133 ), ExtResource( 111 ), ExtResource( 121 ), ExtResource( 113 ), ExtResource( 150 ), ExtResource( 141 ), ExtResource( 132 ), ExtResource( 126 ), ExtResource( 105 ), ExtResource( 110 ) ],
-"loop": false,
-"name": "Jump Left",
-"speed": 25.0
-}, {
-"frames": [ ExtResource( 247 ), ExtResource( 373 ), ExtResource( 386 ) ],
-"loop": true,
-"name": "Style Right",
-"speed": 25.0
-}, {
 "frames": [ ExtResource( 431 ), ExtResource( 385 ), ExtResource( 357 ), ExtResource( 364 ), ExtResource( 326 ), ExtResource( 359 ), ExtResource( 358 ), ExtResource( 395 ) ],
 "loop": false,
 "name": "Parkour Left",
@@ -458,9 +448,9 @@ animations = [ {
 "frames": [ ExtResource( 318 ), ExtResource( 319 ), ExtResource( 370 ), ExtResource( 433 ), ExtResource( 298 ), ExtResource( 299 ), ExtResource( 300 ), ExtResource( 303 ), ExtResource( 302 ), ExtResource( 301 ), ExtResource( 305 ), ExtResource( 304 ), ExtResource( 307 ), ExtResource( 306 ), ExtResource( 308 ), ExtResource( 309 ), ExtResource( 311 ), ExtResource( 310 ), ExtResource( 316 ), ExtResource( 315 ), ExtResource( 313 ), ExtResource( 317 ), ExtResource( 312 ), ExtResource( 314 ) ],
 "loop": true,
 "name": "Anf Right",
-"speed": 25.0
+"speed": 20.0
 }, {
-"frames": [ ExtResource( 422 ), ExtResource( 372 ), ExtResource( 423 ), ExtResource( 248 ), ExtResource( 256 ), ExtResource( 255 ), ExtResource( 250 ), ExtResource( 251 ), ExtResource( 252 ), ExtResource( 253 ), ExtResource( 254 ), ExtResource( 249 ), ExtResource( 257 ), ExtResource( 259 ), ExtResource( 258 ), ExtResource( 260 ), ExtResource( 267 ), ExtResource( 261 ), ExtResource( 268 ), ExtResource( 264 ), ExtResource( 263 ), ExtResource( 262 ), ExtResource( 266 ), ExtResource( 265 ), ExtResource( 238 ), ExtResource( 240 ), ExtResource( 239 ), ExtResource( 243 ), ExtResource( 242 ), ExtResource( 429 ), ExtResource( 430 ), ExtResource( 428 ), ExtResource( 427 ), ExtResource( 295 ), ExtResource( 388 ), ExtResource( 293 ), ExtResource( 352 ), ExtResource( 320 ), ExtResource( 321 ), ExtResource( 296 ), ExtResource( 432 ), ExtResource( 356 ), ExtResource( 241 ), ExtResource( 245 ), ExtResource( 325 ), ExtResource( 371 ), ExtResource( 246 ) ],
+"frames": [ ExtResource( 422 ), ExtResource( 372 ), ExtResource( 423 ), ExtResource( 248 ), ExtResource( 256 ), ExtResource( 255 ), ExtResource( 250 ), ExtResource( 251 ), ExtResource( 252 ), ExtResource( 253 ), ExtResource( 254 ), ExtResource( 249 ), ExtResource( 257 ), ExtResource( 259 ), ExtResource( 258 ), ExtResource( 260 ), ExtResource( 267 ), ExtResource( 261 ), ExtResource( 268 ), ExtResource( 264 ), ExtResource( 263 ), ExtResource( 262 ), ExtResource( 266 ), ExtResource( 265 ), ExtResource( 238 ), ExtResource( 240 ), ExtResource( 239 ), ExtResource( 243 ), ExtResource( 242 ), ExtResource( 261 ), ExtResource( 268 ), ExtResource( 264 ), ExtResource( 263 ), ExtResource( 262 ), ExtResource( 266 ), ExtResource( 265 ), ExtResource( 238 ), ExtResource( 240 ), ExtResource( 239 ), ExtResource( 243 ), ExtResource( 429 ), ExtResource( 430 ), ExtResource( 428 ), ExtResource( 427 ), ExtResource( 295 ), ExtResource( 388 ), ExtResource( 293 ), ExtResource( 352 ), ExtResource( 320 ), ExtResource( 321 ), ExtResource( 296 ), ExtResource( 432 ), ExtResource( 356 ), ExtResource( 241 ), ExtResource( 245 ), ExtResource( 325 ), ExtResource( 371 ), ExtResource( 246 ) ],
 "loop": false,
 "name": "Stumble Right",
 "speed": 25.0
@@ -473,9 +463,9 @@ animations = [ {
 "frames": [ ExtResource( 328 ), ExtResource( 324 ), ExtResource( 236 ), ExtResource( 374 ), ExtResource( 272 ), ExtResource( 269 ), ExtResource( 273 ), ExtResource( 274 ), ExtResource( 271 ), ExtResource( 276 ), ExtResource( 275 ), ExtResource( 283 ), ExtResource( 284 ), ExtResource( 282 ), ExtResource( 285 ), ExtResource( 277 ), ExtResource( 280 ), ExtResource( 281 ), ExtResource( 278 ), ExtResource( 279 ), ExtResource( 378 ), ExtResource( 376 ), ExtResource( 377 ), ExtResource( 380 ) ],
 "loop": true,
 "name": "Anf Left",
-"speed": 25.0
+"speed": 20.0
 }, {
-"frames": [ ExtResource( 290 ), ExtResource( 387 ), ExtResource( 417 ), ExtResource( 409 ), ExtResource( 384 ), ExtResource( 292 ), ExtResource( 383 ), ExtResource( 367 ), ExtResource( 366 ), ExtResource( 412 ), ExtResource( 414 ), ExtResource( 413 ), ExtResource( 411 ), ExtResource( 400 ), ExtResource( 410 ), ExtResource( 402 ), ExtResource( 401 ), ExtResource( 404 ), ExtResource( 405 ), ExtResource( 403 ), ExtResource( 407 ), ExtResource( 406 ), ExtResource( 408 ), ExtResource( 331 ), ExtResource( 334 ), ExtResource( 332 ), ExtResource( 333 ), ExtResource( 335 ), ExtResource( 338 ), ExtResource( 337 ), ExtResource( 336 ), ExtResource( 339 ), ExtResource( 341 ), ExtResource( 342 ), ExtResource( 340 ), ExtResource( 343 ), ExtResource( 345 ), ExtResource( 351 ), ExtResource( 344 ), ExtResource( 346 ), ExtResource( 348 ), ExtResource( 347 ), ExtResource( 419 ), ExtResource( 349 ), ExtResource( 420 ), ExtResource( 421 ), ExtResource( 350 ) ],
+"frames": [ ExtResource( 290 ), ExtResource( 387 ), ExtResource( 417 ), ExtResource( 409 ), ExtResource( 384 ), ExtResource( 292 ), ExtResource( 383 ), ExtResource( 367 ), ExtResource( 366 ), ExtResource( 412 ), ExtResource( 414 ), ExtResource( 413 ), ExtResource( 411 ), ExtResource( 400 ), ExtResource( 410 ), ExtResource( 402 ), ExtResource( 401 ), ExtResource( 404 ), ExtResource( 405 ), ExtResource( 403 ), ExtResource( 407 ), ExtResource( 406 ), ExtResource( 408 ), ExtResource( 331 ), ExtResource( 334 ), ExtResource( 332 ), ExtResource( 333 ), ExtResource( 335 ), ExtResource( 404 ), ExtResource( 405 ), ExtResource( 403 ), ExtResource( 407 ), ExtResource( 406 ), ExtResource( 408 ), ExtResource( 331 ), ExtResource( 334 ), ExtResource( 332 ), ExtResource( 333 ), ExtResource( 335 ), ExtResource( 338 ), ExtResource( 338 ), ExtResource( 337 ), ExtResource( 336 ), ExtResource( 339 ), ExtResource( 341 ), ExtResource( 342 ), ExtResource( 340 ), ExtResource( 343 ), ExtResource( 345 ), ExtResource( 351 ), ExtResource( 344 ), ExtResource( 346 ), ExtResource( 348 ), ExtResource( 347 ), ExtResource( 419 ), ExtResource( 349 ), ExtResource( 420 ), ExtResource( 421 ), ExtResource( 350 ) ],
 "loop": false,
 "name": "Stumble Left",
 "speed": 25.0
@@ -583,6 +573,16 @@ animations = [ {
 "frames": [ ExtResource( 237 ), ExtResource( 291 ) ],
 "loop": true,
 "name": "DuckRun Left",
+"speed": 25.0
+}, {
+"frames": [ ExtResource( 117 ), ExtResource( 116 ), ExtResource( 115 ), ExtResource( 114 ), ExtResource( 129 ), ExtResource( 100 ), ExtResource( 133 ), ExtResource( 111 ), ExtResource( 121 ), ExtResource( 113 ), ExtResource( 150 ), ExtResource( 141 ), ExtResource( 132 ), ExtResource( 126 ), ExtResource( 105 ), ExtResource( 110 ) ],
+"loop": false,
+"name": "Jump Left",
+"speed": 25.0
+}, {
+"frames": [ ExtResource( 247 ), ExtResource( 373 ), ExtResource( 386 ) ],
+"loop": true,
+"name": "Style Right",
 "speed": 25.0
 } ]
 

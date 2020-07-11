@@ -29,6 +29,7 @@ func _process(delta):
 		velocity.x = 0
 			
 	if panting:
+		velocity.x = 0
 		if $Pelataz.frame == 18 and stamina < 1000:
 			$Pelataz.frame = 6
 			
