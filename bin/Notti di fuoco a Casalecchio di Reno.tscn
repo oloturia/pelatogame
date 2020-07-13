@@ -348,7 +348,7 @@ collision_mask = 2048
 position = Vector2( 0.351746, 1.31104 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 6 )
-frame = 8
+frame = 15
 playing = true
 __meta__ = {
 "_edit_lock_": true
@@ -370,7 +370,7 @@ collision_mask = 2048
 position = Vector2( 0.351746, 1.31104 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 6 )
-frame = 8
+frame = 15
 playing = true
 __meta__ = {
 "_edit_lock_": true
