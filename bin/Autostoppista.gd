@@ -26,10 +26,15 @@ func _process(delta):
 		$body.play("still")
 	if nobattuta == 6:
 		$body.play("talking")
-		$battuta.bbcode_text = "[center]Il motivo di tale audacità\nnon è il mero esistere utile\nma è agire sulla psiche di chi abita.\nCasalecchio è un esempio di [i]psicoarchitettura[/i].[/center]"
+		$battuta.bbcode_text = "[center]Il motivo di tale audacità\nnon è il mero esistere utile\nma è agire sulla psiche di chi abita."
 	if nobattuta == 7:
 		$body.play("still")
-	if nobattuta > 9:
+	if nobattuta == 8:
+		$body.play("talking")
+		$battuta.bbcode_text = "[center]Casalecchio è un esempio da manuale di [i]psicoarchitettura[/i].[/center]"
+	if nobattuta == 9:
+		$body.play("still")
+	if nobattuta > 10:
 		$balloon.visible = 0
 		$battuta.visible = 0
 

@@ -200,15 +200,15 @@ extents = Vector2( 245.702, 83.475 )
 
 [sub_resource type="SpriteFrames" id=21]
 animations = [ {
-"frames": [ ExtResource( 40 ), ExtResource( 36 ), ExtResource( 38 ) ],
-"loop": true,
-"name": "talking",
-"speed": 10.0
-}, {
 "frames": [ ExtResource( 40 ) ],
 "loop": true,
 "name": "still",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 40 ), ExtResource( 36 ), ExtResource( 38 ) ],
+"loop": true,
+"name": "talking",
+"speed": 10.0
 } ]
 
 [sub_resource type="SpriteFrames" id=22]
@@ -393,7 +393,7 @@ position = Vector2( -498, 192.619 )
 collision_layer = 32
 
 [node name="Fagiano1" type="KinematicBody2D" parent="."]
-position = Vector2( 4816.51, 657.984 )
+position = Vector2( 4821.51, 671.984 )
 collision_layer = 0
 collision_mask = 2048
 
@@ -401,7 +401,7 @@ collision_mask = 2048
 position = Vector2( 0.351746, 1.31104 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 17 )
-frame = 17
+frame = 10
 playing = true
 __meta__ = {
 "_edit_lock_": true
@@ -423,7 +423,7 @@ collision_mask = 2048
 position = Vector2( 0.351746, 1.31104 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 17 )
-frame = 17
+frame = 10
 playing = true
 __meta__ = {
 "_edit_lock_": true

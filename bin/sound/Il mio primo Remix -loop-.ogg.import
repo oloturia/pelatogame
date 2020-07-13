@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Il mio primo Remix -loop-.ogg-e9579f9303a5076a444f85ad0e99564a.oggstr"
+
+[deps]
+
+source_file="res://sound/Il mio primo Remix -loop-.ogg"
+dest_files=[ "res://.import/Il mio primo Remix -loop-.ogg-e9579f9303a5076a444f85ad0e99564a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

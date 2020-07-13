@@ -276,6 +276,7 @@ func _on_Feet_body_entered(_body):
 
 
 func _on_AreaArrivo_arrived():
+	var win = preload("res://sound/sha.ogg")
 	arrived = true
 	velocity.x = 0
 	velocity.y = 0
@@ -285,6 +286,7 @@ func _on_AreaArrivo_arrived():
 	inversion = false
 	collision_wall = false
 	$Pelataz.play("Idle Right")
-	
+	$Pelataz/AudioStreamPlayer.stream = win
+	$Pelataz/AudioStreamPlayer.play()
 
 

@@ -16,7 +16,6 @@ var rng = RandomNumberGenerator.new()
 func _ready():
 	rng.randomize()
 	audio_node = $AudioStreamPlayer
-	#audio_node.connect("finished",self,"destroy")
 	audio_node.stop()
 	audio_node.set_pitch_scale(1.5)
 	swearing.append(preload("res://sound/cp/acciderba.ogg"))
@@ -37,8 +36,6 @@ func _ready():
 	swearing.append(preload("res://sound/cp/sacripante.ogg"))
 
 func _process(_delta):
-
-	
 	if self.animation == "Run Left" or self.animation == "Run Right":
 		if self.frame == 8 or self.frame == 18:
 			audio_node.stream = step
