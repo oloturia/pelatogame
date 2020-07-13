@@ -4,8 +4,8 @@ extends Button
 func _ready():
 	if Global.level >= 1:
 		self.visible = 1
-		$Label.visible = 1
-	if Global.level > 2:
+	if Global.level > 1:
+		$Label.visible = 0
 		$Selected.visible = 0
 		$Complete.visible = 1
 	pass

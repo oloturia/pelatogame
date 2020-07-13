@@ -133,7 +133,6 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="REGGIO"]
-visible = false
 anchor_left = -0.105
 anchor_right = -0.105
 margin_left = -40.3751
@@ -152,7 +151,6 @@ position = Vector2( 25.0669, 13.1062 )
 texture = ExtResource( 27 )
 
 [node name="Selected" type="Sprite" parent="REGGIO"]
-visible = false
 position = Vector2( 22.469, 23.3746 )
 scale = Vector2( 0.21509, 0.21509 )
 texture = ExtResource( 25 )

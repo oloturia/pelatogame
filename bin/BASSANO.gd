@@ -5,11 +5,11 @@ func _ready():
 	if Global.level >= 4:
 		self.visible = 1
 		$Label.visible = 1
-	if Global.level > 5:
+	if Global.level > 4:
 		$Selected.visible = 0
 		$Complete.visible = 1
-	pass
-
+		$Label.visible = 0
+		
 #func _process(_delta):
 #	pass
 

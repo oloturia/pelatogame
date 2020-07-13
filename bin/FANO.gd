@@ -8,7 +8,6 @@ func _ready():
 		$Selected.visible = 0
 		$Complete.visible = 1
 		$Label.visible = 0
-	pass
 
 #func _process(_delta):
 #	pass
