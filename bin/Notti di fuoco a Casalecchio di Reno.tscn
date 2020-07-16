@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=2]
+[gd_scene load_steps=69 format=2]
 
 [ext_resource path="res://Foreground.gd" type="Script" id=1]
 [ext_resource path="res://backgrounds/cart_casalecchio.png" type="Texture" id=2]
@@ -232,6 +232,9 @@ extents = Vector2( 54.8013, 291.644 )
 [sub_resource type="RectangleShape2D" id=24]
 extents = Vector2( 80.939, 401.126 )
 
+[sub_resource type="RectangleShape2D" id=25]
+extents = Vector2( 2.91016, 2.77047 )
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 43 )
 
@@ -348,7 +351,7 @@ collision_mask = 2048
 position = Vector2( 0.351746, 1.31104 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 6 )
-frame = 15
+frame = 1
 playing = true
 __meta__ = {
 "_edit_lock_": true
@@ -370,7 +373,7 @@ collision_mask = 2048
 position = Vector2( 0.351746, 1.31104 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 6 )
-frame = 15
+frame = 1
 playing = true
 __meta__ = {
 "_edit_lock_": true
@@ -490,10 +493,6 @@ shape = SubResource( 15 )
 position = Vector2( -4606.93, 375.95 )
 shape = SubResource( 15 )
 
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="Terrain"]
-position = Vector2( -5620.63, -140.767 )
-shape = SubResource( 15 )
-
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Terrain"]
 position = Vector2( -4978.07, -164.779 )
 shape = SubResource( 16 )
@@ -507,7 +506,7 @@ position = Vector2( -4096.99, -206.29 )
 shape = SubResource( 18 )
 
 [node name="CollisionShape2D10" type="CollisionShape2D" parent="Terrain"]
-position = Vector2( 6977.05, 880.859 )
+position = Vector2( 6980.41, 865.723 )
 shape = SubResource( 19 )
 
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="Terrain"]
@@ -544,6 +543,11 @@ shape = SubResource( 23 )
 [node name="CollisionShape2D9" type="CollisionShape2D" parent="Wall"]
 position = Vector2( 8902.17, 433.572 )
 shape = SubResource( 24 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Wall"]
+position = Vector2( -5621.28, -148.165 )
+scale = Vector2( 20, 100 )
+shape = SubResource( 25 )
 [connection signal="area_entered" from="Arrivo/AreaArrivo" to="Arrivo/AreaArrivo" method="_on_AreaArrivo_area_entered"]
 [connection signal="arrived" from="Arrivo/AreaArrivo" to="Capitan_Pelato" method="_on_AreaArrivo_arrived"]
 [connection signal="area_shape_entered" from="Autostoppista/Area2D" to="Autostoppista" method="_on_Area2D_area_shape_entered"]

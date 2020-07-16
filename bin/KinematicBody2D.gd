@@ -170,37 +170,42 @@ func _process(delta):
 				get_tree().change_scene("res://Game_Map.tscn")
 		
 
+func resetPelato(LR = ""):
+	if LR == "L":
+		$Pelataz.play("Idle Left")
+	else:
+		$Pelataz.play("Idle Right")
+	inversion = false
+	jumping = false
+	collision_wall = false
+	on_the_floor = true
+	parkouring = false
+	grab = false
+	ducking = false
+	collision_fagiano = false
+	panting = false
+
 func _on_AnimatedSprite_animation_finished():
 	if $Pelataz.animation == "Anf Left":
 			stamina = 3000
-			panting = false
-			$Pelataz.play("Idle Right")
+			resetPelato("R")
 	if $Pelataz.animation == "Anf Right":
 			stamina = 3000
-			panting = false
-			$Pelataz.play("Idle Left")
+			resetPelato("L")
 	if $Pelataz.animation == "Jump Left" and not on_the_floor:
 		$Pelataz.play("Style Left")
 	elif $Pelataz.animation == "Jump Right" and not on_the_floor:
 		$Pelataz.play("Style Right")
 	elif $Pelataz.animation == "Ouch Right":
-		$Pelataz.play("Idle Right")
+		resetPelato("R")
 		velocity.x = 0
-		collision_wall = false
 	elif $Pelataz.animation == "Ouch Left":
-		$Pelataz.play("Idle Left")
+		resetPelato("L")
 		velocity.x = 0
-		collision_wall = false
 	elif $Pelataz.animation == "Land Left":
-		collision_wall = false
-		jumping = false
-		parkouring = false
-		$Pelataz.play("Idle Right")
+		resetPelato("R")
 	elif $Pelataz.animation == "Land Right":
-		collision_wall = false
-		jumping = false
-		parkouring = false
-		$Pelataz.play("Idle Left")
+		resetPelato("L")
 	elif $Pelataz.animation == "Parkour Left":
 		grab = false
 		$Pelataz.play("Parkjump Left")
@@ -212,19 +217,9 @@ func _on_AnimatedSprite_animation_finished():
 		velocity.x = -velocity.x*1.5
 		velocity.y = -25
 	elif $Pelataz.animation == "Stumble Left":
-		jumping = false
-		parkouring = false
-		collision_wall = false
-		on_the_floor = true
-		collision_fagiano = false
-		$Pelataz.play("Idle Left")
+		resetPelato("L")
 	elif $Pelataz.animation == "Stumble Right":
-		jumping = false
-		parkouring = false
-		collision_wall = false
-		on_the_floor = true
-		collision_fagiano = false
-		$Pelataz.play("Idle Right")
+		resetPelato("R")
 
 func _on_Head_body_entered(_body):
 	if jumping:
@@ -280,12 +275,7 @@ func _on_AreaArrivo_arrived():
 	arrived = true
 	velocity.x = 0
 	velocity.y = 0
-	jumping = false
-	parkouring = false
-	collision_fagiano = false
-	inversion = false
-	collision_wall = false
-	$Pelataz.play("Idle Right")
+	resetPelato("R")
 	$Pelataz/AudioStreamPlayer.stream = win
 	$Pelataz/AudioStreamPlayer.play()
 
