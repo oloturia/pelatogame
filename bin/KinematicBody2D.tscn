@@ -435,11 +435,6 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 431 ), ExtResource( 385 ), ExtResource( 357 ), ExtResource( 364 ), ExtResource( 326 ), ExtResource( 359 ), ExtResource( 358 ), ExtResource( 395 ) ],
-"loop": false,
-"name": "Parkour Left",
-"speed": 25.0
-}, {
 "frames": [ ExtResource( 393 ), ExtResource( 375 ), ExtResource( 390 ), ExtResource( 323 ), ExtResource( 355 ), ExtResource( 369 ), ExtResource( 354 ), ExtResource( 368 ) ],
 "loop": false,
 "name": "Parkour Right",
@@ -584,6 +579,11 @@ animations = [ {
 "loop": true,
 "name": "Style Right",
 "speed": 25.0
+}, {
+"frames": [ ExtResource( 431 ), ExtResource( 385 ), ExtResource( 357 ), ExtResource( 364 ), ExtResource( 326 ), ExtResource( 359 ), ExtResource( 358 ), ExtResource( 395 ) ],
+"loop": false,
+"name": "Parkour Left",
+"speed": 25.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -655,6 +655,7 @@ collision_mask = 0
 [node name="Collision Feet" type="CollisionShape2D" parent="Feet"]
 position = Vector2( 1.52588e-05, 59.1955 )
 shape = SubResource( 5 )
+
 [connection signal="animation_finished" from="Pelataz" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="body_entered" from="Head" to="." method="_on_Head_body_entered"]
 [connection signal="body_entered" from="Getter" to="." method="_on_Feet_body_entered"]

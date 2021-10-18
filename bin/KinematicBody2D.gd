@@ -261,6 +261,7 @@ func _on_Head_body_entered(_body):
 func _on_Feet_body_entered(_body):
 		jumping = false
 		parkouring = false
+		inversion = false
 		collision_fagiano = true
 		if velocity.x > 0:
 			velocity.x = 25
